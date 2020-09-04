@@ -8,18 +8,18 @@
     padding-top: 25px;
 }
 
-h2 {
+h2, p { 
     text-align: center;
-    /* width: 100%;
-    margin: 0;
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    transform: translate(
-      -50%,
-      -50% ); */ */
 }
 
-p {
-    text-align: center;
+#start-button-div {
+    width: 100%;
+}
+
+#start-button {
+    margin-left: 50%;
+    margin-top: 40px;
+    transform: translate(
+        -50%,
+        -50%);
 }
