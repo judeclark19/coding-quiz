@@ -1,3 +1,25 @@
-/* .navbar-text {
-    text-align: right;
-} */
+#quiz-display-row {
+    background-color: #f8f9fa;
+    border: 1.5px outset;
+    margin-top: 140px;
+}
+
+#quiz-display-cell {
+    padding-top: 25px;
+}
+
+h2 {
+    text-align: center;
+    /* width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translate(
+      -50%,
+      -50% ); */ */
+}
+
+p {
+    text-align: center;
+}
