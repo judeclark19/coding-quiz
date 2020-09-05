@@ -1,14 +1,16 @@
 //DOM variables
 var startButtonEl = document.getElementById("start-button");
-// var instructionParagraphs = document.getElementsByClassName("instructions");
-var instructionParagraphs = document.querySelectorAll(".instructions");
+var instructionParagraphs = document.querySelectorAll(".instructions"); //note this is an array
 
-// on button click, hide <p>s
+//When start button is clicked:
+// hide intro text
 startButtonEl.addEventListener("click", function(event){
-    // instructionParagraphs.setAttribute("style", "visibility:hidden")
-//    instructionParagraphs.style.visibility="blue";
 console.log(instructionParagraphs);
     for (let i=0; i<instructionParagraphs.length; i++) {
         instructionParagraphs[i].remove();
     }
 })
+//Make first question appear TODO: tie both functions to same click event
+startButtonEl.addEventListener("click", function(event){
+
+    })
