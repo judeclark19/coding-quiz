@@ -1,81 +1,135 @@
-//DOM variables
-var startButtonEl = document.getElementById("start-button");
-var instructionParagraphs = document.querySelectorAll(".instructions"); //note this is an array
-var quizDisplayCell = document.getElementById("quiz-display-cell");
-var quizDisplayCellBody = document.getElementById("quiz-display-cell-body");
-var questionPromptDiv = document.getElementById("question-prompt-div");
-var promptTextDisplayed = document.getElementById("prompt-text");
-var answersWrapperEl = document.getElementById("answers-wrapper");
-var allAnswerButtons = document.querySelectorAll(".btn-info");
+//DOM Elements
+const startButton = document.getElementById("start-btn");
+const nextButton = document.getElementById("next-btn");
+const introSlide = document.getElementById("intro-slide");
+const questionPromptEl = document.getElementById("question-prompt-text");
+const answerButtonsDiv = document.getElementById("answer-buttons");
 
-//Starting intervals
-let currentQuestion = 0;
+//Other variables
+var currentQuestionIndex = 0;
 
-//Quiz Questions and Answers
-var allQuestionsBank = [
-  "Commonly used data types DO NOT include:",
-  "The condition in an if/else statement is enclosed within:",
-  "Arrays in JavaScript can be used to store:",
+//Event listeners
+startButton.addEventListener("click", startGame);
+nextButton.addEventListener("click", () => {
+  currentQuestionIndex++;
+  nextQuestionSlide();
+});
+
+//Functions
+
+//start the game
+function startGame() {
+  currentQuestionIndex = 0;
+  resetState();
+  startButton.setAttribute("class", "hide");
+  introSlide.setAttribute("class", "hide");
+  answerButtonsDiv.classList.remove("hide");
+  showNextQuestion();
+}
+
+function nextQuestionSlide() {
+  resetState();
+  showNextQuestion();
+}
+//show next question TODO: I still don't understand the answer parameter.
+function showNextQuestion(question) {
+  questionPromptEl.innerText = quizQuestions[currentQuestionIndex].question;
+  quizQuestions[currentQuestionIndex].answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.innerText = answer.text;
+    button.setAttribute("class", "btn btn-info");
+    if (answer.correct) {
+      button.dataset.correct = answer.correct;
+    }
+    button.addEventListener("click", selectAnswer);
+    answerButtonsDiv.appendChild(button);
+  });
+}
+
+function resetState() {
+  while (answerButtonsDiv.firstChild) {
+    answerButtonsDiv.removeChild(answerButtonsDiv.firstChild);
+  }
+  nextButton.classList.add("hide");
+}
+
+//when an answer is selected
+function selectAnswer(event) {
+  var selectedButton = event.target;
+  var correct = selectedButton.dataset.correct;
+  Array.from(answerButtonsDiv.children).forEach((button) => {
+    setStatusClass(button, button.dataset.correct);
+  });
+  if (quizQuestions.length>currentQuestionIndex+1){
+nextButton.classList.remove("hide");
+  } else {
+    startButton.innerText = "Play Again"
+    startButton.classList.remove("hide");
+  }
+  
+}
+
+function setStatusClass(element, correct) {
+  clearStatusClass(element);
+  if (correct) {
+    element.classList.add("btn-success");
+    element.classList.remove("btn-info");
+  } else {
+    element.classList.add("btn-danger");
+    element.classList.remove("btn-info");
+  }
+}
+
+function clearStatusClass(element) {
+  element.classList.remove("btn-success");
+  element.classList.remove("btn-danger");
+}
+
+//Question and answer bank
+const quizQuestions = [
+  {
+    question: "Commonly used data types DO NOT include:",
+    answers: [
+      { text: "strings", correct: false },
+      { text: "booleans", correct: false },
+      { text: "alerts", correct: true },
+      { text: "numbers", correct: false },
+    ],
+  },
+  {
+    question: "The condition in an if/else statement is enclosed within:",
+    answers: [
+      { text: "quotes", correct: true },
+      { text: "curly brackets", correct: false },
+      { text: "parentheses", correct: false },
+      { text: "square brackets", correct: false },
+    ],
+  },
+  {
+    question: "Arrays in JavaScript can be used to store:",
+    answers: [
+      { text: "numbers and strings", correct: false },
+      { text: "other arrays", correct: false },
+      { text: "booleans", correct: false },
+      { text: "all of the above", correct: true },
+    ],
+  },
+  {
+    question: "String values must be enclosed within ______ when being assigned to variables:",
+    answers: [
+      { text: "commas", correct: false },
+      { text: "curly brackets", correct: false },
+      { text: "quotes", correct: true },
+      { text: "parentheses", correct: false },
+    ],
+  },
+  {
+    question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+    answers: [
+      { text: "JavaScript", correct: false },
+      { text: "terminal / bash", correct: false },
+      { text: "for loops", correct: false },
+      { text: "console.log", correct: true },
+    ],
+  },
 ];
-
-var questionBeingDisplayed;
-
-var allAnswersBank = [
-  //question 1
-  ["strings", "booleans", "alerts", "numbers"],
-  //question 2
-  ["quotes", "curly brackets", "parentheses", "square brackets"],
-];
-
-var answersBeingDisplayed;
-
-//Event Listeners
-// TODO: how do I combine these?
-startButtonEl.addEventListener("click", hideInstructions);
-startButtonEl.addEventListener("click", showNextPrompt);
-startButtonEl.addEventListener("click", showNextQuestion);
-
-function hideInstructions() {
-  for (let i = 0; i < instructionParagraphs.length; i++) {
-    instructionParagraphs[i].remove();
-    startButtonEl.remove();
-  }
-}
-
-function showNextPrompt() {
-  questionBeingDisplayed=allQuestionsBank[currentQuestion]
-  //create h4 and display the prompt
-  var questionPromptEl = document.createElement("h4");
-  questionPromptEl.textContent = allQuestionsBank[currentQuestion];
-  promptTextDisplayed.appendChild(questionPromptEl);
-}
-
-function hidePrevQuestions() {
-  var prevAnswerSet = document.querySelectorAll("#answer-button")
-
-  // if (currentQuestion!==0){
- for (let i=0; i<4; i++) {
-    prevAnswerSet[0].remove(); }}
-
-  function showNextQuestion() {
-  answersBeingDisplayed=allAnswersBank[currentQuestion]
-  for (let i=0; i<answersBeingDisplayed.length; i++){
-    var anAnswerButton = document.createElement("button");
-    anAnswerButton.textContent = allAnswersBank[currentQuestion][i];
-    anAnswerButton.classList.add("btn", "btn-info", "btn-block");
-    anAnswerButton.setAttribute("id","answer-button");
-    answersWrapperEl.appendChild(anAnswerButton);
-  }
-}
-
-//Click listener for when user clicks on any answer
-answersWrapperEl.addEventListener("click", function(event){
-  if(event.target.id==="answer-button"){
-    console.log("clicked a button")
-    currentQuestion++
-    hidePrevQuestions();
-    // showNextQuestion();
-  }
-  else {console.log("NOT button")}
-
-})

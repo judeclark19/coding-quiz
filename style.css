@@ -1,44 +1,47 @@
-#quiz-display-row {
-    background-color: #f8f9fa;
-    border: 1.5px outset;
-    margin-top: 140px;
+/* btn-danger is going to be for wrong answers */
+/* btn-success is going to be for right answers */
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
-#quiz-display-cell {
-    padding-top: 25px;
+body {
+    padding: 0;
+    margin: 0;
 }
 
-/* TODO: try some other looks for the prompts besides h3. not sure if I love */
-h2, p, h4 {
+h2, p, #card-footer {
     text-align: center;
 }
 
-#start-button-div {
-    width: 100%;
+#main-container{
+    border: 3px outset;
+    box-shadow: 0 0 3px 1px;
+    border-radius:10px;
+    margin-top: 30px;
+    min-height: 50vw;
+    padding: 30px;
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
-#start-button {
-    margin-left: 50%;
-    margin-top: 40px;
-    transform: translate(
-        -50%,
-        -50%);
+/* #answer-buttons{
+    border: 2px solid green;
+    justify-content: center;
+    padding: 10px;
+} */
+
+/* TODO: I would like these to be centered and only the necessary width for content */
+.btn-stack{
+    border: 2px solid purple;
+    display: grid!important;
+    gap: 10px;
 }
 
-#option-buttons-div {
-    padding-top: 20px;
-    padding-bottom: 20px;
+.hide{
+    display:none!important;
 }
 
-.btn-info {
-    width: 30%!important;
-    margin: auto;
-}
-
-#quiz-display-cell-body{
-    border: 2px solid red;
-}
-
-#answers-wrapper{
-    border:2px solid blue;
-}
+/* #intro-slide{
+    border: 2px solid hotpink;
+} */

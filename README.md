@@ -1,7 +1,7 @@
 # coding-quiz
 
 ## Sources
-* [Vertical Button Groups](https://www.w3schools.com/howto/howto_css_button_group_vertical.asp)
+*[Build A Quiz App With JavaScript](https://www.youtube.com/watch?v=riDzcEQbX6k)
 
 ## Answer Key
 <details>
