@@ -23,8 +23,9 @@ var questions = [
 // TODO: how do I combine these?
 startButtonEl.addEventListener("click", hideInstructions);
 startButtonEl.addEventListener("click", showNextPrompt);
-startButtonEl.addEventListener("click", showOptionOne);
-startButtonEl.addEventListener("click", showOptionTwo);
+// startButtonEl.addEventListener("click", showOptionOne);
+// startButtonEl.addEventListener("click", showOptionTwo);
+startButtonEl.addEventListener("click", vertButGrp);
 
 function hideInstructions() {
   for (let i = 0; i < instructionParagraphs.length; i++) {
@@ -42,20 +43,36 @@ function showNextPrompt() {
   quizDisplayCell.appendChild(questionPrompt);
 }
 
-function showOptionOne() {
-  var optionOne = document.createElement("button");
-  //add text to the span
-  optionOne.textContent = questions[0].optionOne;
-  optionOne.classList.add("answer-button", "btn", "btn-info");
-  //append it inside quiz-display-cell
-  quizDisplayCell.appendChild(optionOne);
+//let's try a vertical button group!!
+
+function vertButGrp() {
+    //create button group div
+    var optionsDivEl = document.createElement("div");
+    optionsDivEl.classList.add("btn-group");
+    quizDisplayCell.appendChild(optionsDivEl);
+
+    //create button for option1
+    var optionOne = document.createElement("button");
+    //add text to button
+    optionOne.textContent = questions[0].optionOne;
+    //append to btn-group
+    quizDisplayCell.appendChild(optionOne);
 }
 
-function showOptionTwo() {
-  var optionTwo = document.createElement("button");
-  //add text to the span
-  optionTwo.textContent = questions[0].optionTwo;
-  optionTwo.classList.add("answer-button", "btn", "btn-info");
-  //append it inside quiz-display-cell
-  quizDisplayCell.appendChild(optionTwo);
-}
+// function showOptionOne() {
+//   var optionOne = document.createElement("button");
+//   //add text to the span
+//   optionOne.textContent = questions[0].optionOne;
+//   optionOne.classList.add("answer-button", "btn", "btn-info");
+//   //append it inside quiz-display-cell
+//   quizDisplayCell.appendChild(optionOne);
+// }
+
+// function showOptionTwo() {
+//   var optionTwo = document.createElement("button");
+//   //add text to the span
+//   optionTwo.textContent = questions[0].optionTwo;
+//   optionTwo.classList.add("answer-button", "btn", "btn-info");
+//   //append it inside quiz-display-cell
+//   quizDisplayCell.appendChild(optionTwo);
+// }
