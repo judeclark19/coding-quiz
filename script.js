@@ -21,8 +21,8 @@ nextButton.addEventListener("click", () => {
 function startGame() {
   currentQuestionIndex = 0;
   resetState();
-  startButton.setAttribute("class", "hide");
-  introSlide.setAttribute("class", "hide");
+  startButton.classList.add("hide");
+  introSlide.classList.add("hide");
   answerButtonsDiv.classList.remove("hide");
   showNextQuestion();
 }

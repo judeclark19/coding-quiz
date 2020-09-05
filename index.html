@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Sandbox</title>
+    <title>Jude's Coding Quiz</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -38,9 +38,6 @@
     <link rel="manifest" href="./assets/favicon_io/site.webmanifest" />
     <!-- Favicon end -->
 
-    <!-- My CSS -->
-    <link rel="stylesheet" href="./style.css" />
-
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -48,11 +45,14 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+
+     <!-- My CSS -->
+     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <!-- Nav bar begin -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Jude's Coding Quiz</a>
+      <div class="navbar-brand" href="#">Jude's Coding Quiz</div>
       <button
         class="navbar-toggler"
         type="button"
@@ -67,7 +67,7 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
+            <a class="nav-link active-page" href="#"
               >Take the Quiz <span class="sr-only">(current)</span></a
             >
           </li>
@@ -84,16 +84,16 @@
 
     <div class="container" id="main-container">
       <div id="card-body">
-        <h2>Quiz Title</h2>
+        <h2>Coding Knowledge Time Trial</h2>
         <hr />
         <div id="intro-slide">
           <p>
-            Try to answer the following code-related questions within the time limit.</p><p>Note: incorrect answers will take 10 seconds off the clock!
+            A timer will appear in the upper right corner of the page when you click the start button.</p><p>Try to answer the following code-related questions within the time limit.</p><p>Note: incorrect answers will take 10 seconds off the clock!
           </p>
         </div>
         <div id="question-slide">
           <div id="question-prompt-text">
-            <!-- <p>First Q Lorem ipsum dolor sit amet consectetur.</p> -->
+            <!-- Question text appears here -->
           </div>
           <div id="answer-buttons" class="btn-stack hide">
             <!-- <button class="btn btn-info">Answer 1</button>
