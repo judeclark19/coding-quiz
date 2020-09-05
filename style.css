@@ -9,7 +9,7 @@
 }
 
 /* TODO: try some other looks for the prompts besides h3. not sure if I love */
-h2, p, h3 {
+h2, p, h4 {
     text-align: center;
 }
 
@@ -23,6 +23,11 @@ h2, p, h3 {
     transform: translate(
         -50%,
         -50%);
+}
+
+#option-buttons-div {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .btn-info {
