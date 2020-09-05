@@ -35,4 +35,19 @@ startButtonEl.addEventListener("click", function(event){
     questionPrompt.textContent = "first question prompt";
     //append it inside quiz-display-cell
     quizDisplayCell.appendChild(questionPrompt)
+
+    var optionOne = document.createElement("button");
+    //add text to the span
+    optionOne.textContent = "first option";
+    optionOne.classList.add("answer-button");
+    //append it inside quiz-display-cell
+    quizDisplayCell.appendChild(optionOne)
+
+    var optionTwo = document.createElement("button");
+    //add text to the span
+    optionTwo.textContent = "second option";
+    optionTwo.classList.add("answer-button");
+    //append it inside quiz-display-cell
+    quizDisplayCell.appendChild(optionTwo)
+
     })

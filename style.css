@@ -8,7 +8,8 @@
     padding-top: 25px;
 }
 
-h2, p, h3 { 
+/* TODO: try some other looks for the prompts besides h3. not sure if I love */
+h2, p, h3 {
     text-align: center;
 }
 
