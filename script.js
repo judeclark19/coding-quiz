@@ -45,7 +45,7 @@ function showNextPrompt() {
 function showOptionOne() {
   var optionOne = document.createElement("button");
   //add text to the span
-  optionOne.textContent = "first option";
+  optionOne.textContent = questions[0].optionOne;
   optionOne.classList.add("answer-button", "btn", "btn-info");
   //append it inside quiz-display-cell
   quizDisplayCell.appendChild(optionOne);
@@ -54,7 +54,7 @@ function showOptionOne() {
 function showOptionTwo() {
   var optionTwo = document.createElement("button");
   //add text to the span
-  optionTwo.textContent = "second option";
+  optionTwo.textContent = questions[0].optionTwo;
   optionTwo.classList.add("answer-button", "btn", "btn-info");
   //append it inside quiz-display-cell
   quizDisplayCell.appendChild(optionTwo);
