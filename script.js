@@ -4,20 +4,37 @@ var instructionParagraphs = document.querySelectorAll(".instructions"); //note t
 var quizDisplayCell = document.getElementById("quiz-display-cell");
 
 //Quiz Questions
-var questions = [
-  {
-    questionNumber: 1,
-    questionPrompt: "Commonly used data types DO NOT include:",
-    optionOne: "strings",
-    optionTwo: "booleans",
-    optionThree: "alerts",
-    optionFour: "numbers",
-  },
+var questionPromptArr = [
+  { //index 0
+    number: 1,
+    prompt: "Commonly used data types DO NOT include:",
+  }, { //index 1
+    number: 2,
+    prompt: "The condition in an if/else statement is enclosed within:",
+  }
   //question2
   //question3
   //question4
   //question5
 ];
+
+var answerOptions = [
+    { //index 0
+      a: "strings",
+      b: "booleans",
+      c: "alerts",
+      d: "numbers",
+    }, { //index 1
+      a: "quotes",
+      b: "curly brackets",
+      c: "parentheses",
+      d: "square brackets",
+    }
+    //question2
+    //question3
+    //question4
+    //question5
+  ];
 
 //When start button is clicked:
 // TODO: how do I combine these?
@@ -25,7 +42,7 @@ startButtonEl.addEventListener("click", hideInstructions);
 startButtonEl.addEventListener("click", showNextPrompt);
 // startButtonEl.addEventListener("click", showOptionOne);
 // startButtonEl.addEventListener("click", showOptionTwo);
-startButtonEl.addEventListener("click", vertButGrp);
+startButtonEl.addEventListener("click", displayAnswerOptions);
 
 function hideInstructions() {
   for (let i = 0; i < instructionParagraphs.length; i++) {
@@ -35,21 +52,21 @@ function hideInstructions() {
 }
 
 function showNextPrompt() {
-  //create an h3 for the prompt
-  var questionPrompt = document.createElement("h3");
-  //add text to the h3
-  questionPrompt.textContent = questions[0].questionPrompt;
-  //append it inside quiz-display-cell
-  quizDisplayCell.appendChild(questionPrompt);
+  //create prompt
+  var questionPromptEl = document.createElement("h3");
+  questionPromptEl.textContent = questionPromptArr[0].questionPrompt;
+  quizDisplayCell.appendChild(questionPromptEl);
 }
 
-//let's try a vertical button group!!
-
-function vertButGrp() {
-  //create button group div
+function displayAnswerOptions() {
+  //create button group div to contain the answers
   var optionsDivEl = document.createElement("div");
-  optionsDivEl.setAttribute("id", "option-buttons-div")
+  optionsDivEl.setAttribute("id", "option-buttons-div");
   quizDisplayCell.appendChild(optionsDivEl);
+
+  //for loop
+
+  
 
   //create button for option1
   var optionOne = document.createElement("button");
@@ -75,4 +92,3 @@ function vertButGrp() {
   //append to btn-group
   optionsDivEl.appendChild(optionThree);
 }
-
