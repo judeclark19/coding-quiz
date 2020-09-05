@@ -3,6 +3,8 @@ var startButtonEl = document.getElementById("start-button");
 var instructionParagraphs = document.querySelectorAll(".instructions"); //note this is an array
 var quizDisplayCell = document.getElementById("quiz-display-cell");
 var quizDisplayCellBody = document.getElementById("quiz-display-cell-body");
+var questionPromptDiv = document.getElementById("question-prompt-div");
+var answersDivEl = document.getElementById("answers-div");
 var allAnswerButtons = document.getElementsByClassName("btn-info");
 
 //Starting intervals
@@ -54,7 +56,7 @@ function showNextPrompt() {
   //create h4 and display the prompt
   var questionPromptEl = document.createElement("h4");
   questionPromptEl.textContent = allQuestionsObject.questionOnePrompt;
-  quizDisplayCell.appendChild(questionPromptEl);
+  questionPromptDiv.appendChild(questionPromptEl);
 }
 
 function showNextQuestion() {
@@ -62,6 +64,6 @@ function showNextQuestion() {
     var anAnswerButton = document.createElement("button");
     anAnswerButton.textContent = allAnswersArray[currentQuestion][i];
     anAnswerButton.classList.add("btn", "btn-info", "btn-block");
-    quizDisplayCellBody.appendChild(anAnswerButton);
+    answersDivEl.appendChild(anAnswerButton);
   }
 }
