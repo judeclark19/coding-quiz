@@ -11,7 +11,7 @@
     <title>Jude's Coding quiz</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <!-- Favicon -->
     <link
       rel="icon"
@@ -37,7 +37,7 @@
     />
     <link rel="manifest" href="./assets/favicon_io/site.webmanifest" />
     <!-- Favicon end -->
-    
+
     <!-- My CSS -->
     <link rel="stylesheet" href="./style.css" />
 
@@ -86,18 +86,21 @@
       <div class="container">
         <div class="row" id="quiz-display-row">
           <div id="quiz-display-cell" class="col-sm-12">
-            <div id="question-prompt-div"><hr />
-            <h2>Coding Quiz Timed Challenge</h2></div>
-            
-<div id="quiz-display-cell-body">
-  <div id="answers-div">
-              <p class="instructions">
-                Try to answer the following code-related questions within the
-                time limit.
-              </p>
-              <p class="instructions">
-                Note: incorrect answers will take 10 seconds off the clock!
-              </p>
+            <div id="question-prompt-div">
+              <hr />
+              <h2>Coding Quiz Timed Challenge</h2>
+            </div>
+
+            <div id="quiz-display-cell-body">
+              <div id="instructions-div">
+                <p class="instructions">
+                  Try to answer the following code-related questions within the
+                  time limit.
+                </p>
+                <p class="instructions">
+                  Note: incorrect answers will take 10 seconds off the clock!
+                </p>
+              </div>
               <div id="start-button-div">
                 <button
                   type="button"
@@ -106,9 +109,9 @@
                 >
                   Start Quiz
                 </button>
+                <div id="answers-div"></div>
+              </div>
             </div>
-          </div>
-</div>
           </div>
         </div>
       </div>
