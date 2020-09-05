@@ -48,14 +48,14 @@ function showNextPrompt() {
 function vertButGrp() {
   //create button group div
   var optionsDivEl = document.createElement("div");
-  optionsDivEl.classList.add("btn-group");
+  optionsDivEl.setAttribute("id", "option-buttons-div")
   quizDisplayCell.appendChild(optionsDivEl);
 
   //create button for option1
   var optionOne = document.createElement("button");
   //add text to button
   optionOne.textContent = questions[0].optionOne;
-  optionOne.classList.add("btn", "btn-info");
+  optionOne.classList.add("btn", "btn-info", "btn-block");
   //append to btn-group
   optionsDivEl.appendChild(optionOne);
 
@@ -63,25 +63,16 @@ function vertButGrp() {
   var optionTwo = document.createElement("button");
   //add text to button
   optionTwo.textContent = questions[0].optionTwo;
-  optionTwo.classList.add("btn", "btn-info");
+  optionTwo.classList.add("btn", "btn-info", "btn-block");
   //append to btn-group
   optionsDivEl.appendChild(optionTwo);
+
+  //create button for option3
+  var optionThree = document.createElement("button");
+  //add text to button
+  optionThree.textContent = questions[0].optionThree;
+  optionThree.classList.add("btn", "btn-info", "btn-block");
+  //append to btn-group
+  optionsDivEl.appendChild(optionThree);
 }
 
-// function showOptionOne() {
-//   var optionOne = document.createElement("button");
-//   //add text to the span
-//   optionOne.textContent = questions[0].optionOne;
-//   optionOne.classList.add("answer-button", "btn", "btn-info");
-//   //append it inside quiz-display-cell
-//   quizDisplayCell.appendChild(optionOne);
-// }
-
-// function showOptionTwo() {
-//   var optionTwo = document.createElement("button");
-//   //add text to the span
-//   optionTwo.textContent = questions[0].optionTwo;
-//   optionTwo.classList.add("answer-button", "btn", "btn-info");
-//   //append it inside quiz-display-cell
-//   quizDisplayCell.appendChild(optionTwo);
-// }
