@@ -46,17 +46,26 @@ function showNextPrompt() {
 //let's try a vertical button group!!
 
 function vertButGrp() {
-    //create button group div
-    var optionsDivEl = document.createElement("div");
-    optionsDivEl.classList.add("btn-group");
-    quizDisplayCell.appendChild(optionsDivEl);
+  //create button group div
+  var optionsDivEl = document.createElement("div");
+  optionsDivEl.classList.add("btn-group");
+  quizDisplayCell.appendChild(optionsDivEl);
 
-    //create button for option1
-    var optionOne = document.createElement("button");
-    //add text to button
-    optionOne.textContent = questions[0].optionOne;
-    //append to btn-group
-    quizDisplayCell.appendChild(optionOne);
+  //create button for option1
+  var optionOne = document.createElement("button");
+  //add text to button
+  optionOne.textContent = questions[0].optionOne;
+  optionOne.classList.add("btn", "btn-info");
+  //append to btn-group
+  optionsDivEl.appendChild(optionOne);
+
+  //create button for option2
+  var optionTwo = document.createElement("button");
+  //add text to button
+  optionTwo.textContent = questions[0].optionTwo;
+  optionTwo.classList.add("btn", "btn-info");
+  //append to btn-group
+  optionsDivEl.appendChild(optionTwo);
 }
 
 // function showOptionOne() {
