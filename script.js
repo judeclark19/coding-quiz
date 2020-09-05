@@ -3,38 +3,72 @@ var startButtonEl = document.getElementById("start-button");
 var instructionParagraphs = document.querySelectorAll(".instructions"); //note this is an array
 var quizDisplayCell = document.getElementById("quiz-display-cell");
 
-//Quiz Questions
+//Quiz Questions and Answers
 var questionPromptArr = [
-  { //index 0
+  {
+    //index 0
     number: 1,
     prompt: "Commonly used data types DO NOT include:",
-  }, { //index 1
+  },
+  {
+    //index 1
     number: 2,
     prompt: "The condition in an if/else statement is enclosed within:",
-  }
-  //question2
-  //question3
-  //question4
-  //question5
+  },
+  {
+    //index 2
+    number: 3,
+    prompt: "Arrays in JavaScript can be used to store:",
+  },
+  {
+    //index 3
+    number: 4,
+    prompt: "String values must be enclosed within ______ when being assigned to variables.",
+  },
+  {
+    //index 4
+    number: 5,
+    prompt: "A very useful tool used during development and debugging for printing content to the debugger is:",
+  },
 ];
-
 var answerOptions = [
-    { //index 0
-      a: "strings",
-      b: "booleans",
-      c: "alerts",
-      d: "numbers",
-    }, { //index 1
-      a: "quotes",
-      b: "curly brackets",
-      c: "parentheses",
-      d: "square brackets",
-    }
-    //question2
-    //question3
-    //question4
-    //question5
-  ];
+  {
+    //index 0 q1
+    a: "strings",
+    b: "booleans",
+    c: "alerts",
+    d: "numbers",
+  },
+  {
+    //index 1 q2
+    a: "quotes",
+    b: "curly brackets",
+    c: "parentheses",
+    d: "square brackets",
+  },
+  {
+    //index 2 q3
+    a: "numbers and strings",
+    b: "other arrays",
+    c: "booleans",
+    d: "all of the above",
+  },
+  {
+    //index 3 q4
+    a: "commas",
+    b: "curly brackets",
+    c: "quotes",
+    d: "parentheses",
+  },
+  {
+    //index 4 q5
+    a: "JavaScript",
+    b: "terminal / bash",
+    c: "for loops",
+    d: "console.log",
+  },
+
+];
 
 //When start button is clicked:
 // TODO: how do I combine these?
@@ -52,9 +86,9 @@ function hideInstructions() {
 }
 
 function showNextPrompt() {
-  //create prompt
+  //create h3 and display the prompt
   var questionPromptEl = document.createElement("h3");
-  questionPromptEl.textContent = questionPromptArr[0].questionPrompt;
+  questionPromptEl.textContent = questionPromptArr[0].prompt;
   quizDisplayCell.appendChild(questionPromptEl);
 }
 
@@ -64,14 +98,12 @@ function displayAnswerOptions() {
   optionsDivEl.setAttribute("id", "option-buttons-div");
   quizDisplayCell.appendChild(optionsDivEl);
 
-  //for loop
-
-  
+  //TODO: for loop
 
   //create button for option1
   var optionOne = document.createElement("button");
   //add text to button
-  optionOne.textContent = questions[0].optionOne;
+  optionOne.textContent = answerOptions[0].a;
   optionOne.classList.add("btn", "btn-info", "btn-block");
   //append to btn-group
   optionsDivEl.appendChild(optionOne);
@@ -79,7 +111,7 @@ function displayAnswerOptions() {
   //create button for option2
   var optionTwo = document.createElement("button");
   //add text to button
-  optionTwo.textContent = questions[0].optionTwo;
+  optionTwo.textContent = answerOptions[0].b;
   optionTwo.classList.add("btn", "btn-info", "btn-block");
   //append to btn-group
   optionsDivEl.appendChild(optionTwo);
@@ -87,7 +119,7 @@ function displayAnswerOptions() {
   //create button for option3
   var optionThree = document.createElement("button");
   //add text to button
-  optionThree.textContent = questions[0].optionThree;
+  optionThree.textContent = answerOptions[0].c;
   optionThree.classList.add("btn", "btn-info", "btn-block");
   //append to btn-group
   optionsDivEl.appendChild(optionThree);
