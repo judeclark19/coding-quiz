@@ -31,51 +31,58 @@ var questionPromptArr = [
     prompt: "A very useful tool used during development and debugging for printing content to the debugger is:",
   },
 ];
-var answerOptions = [
-  {
-    //index 0 q1
-    a: "strings",
-    b: "booleans",
-    c: "alerts",
-    d: "numbers",
-  },
-  {
-    //index 1 q2
-    a: "quotes",
-    b: "curly brackets",
-    c: "parentheses",
-    d: "square brackets",
-  },
-  {
-    //index 2 q3
-    a: "numbers and strings",
-    b: "other arrays",
-    c: "booleans",
-    d: "all of the above",
-  },
-  {
-    //index 3 q4
-    a: "commas",
-    b: "curly brackets",
-    c: "quotes",
-    d: "parentheses",
-  },
-  {
-    //index 4 q5
-    a: "JavaScript",
-    b: "terminal / bash",
-    c: "for loops",
-    d: "console.log",
-  },
 
-];
+var aAnswers = ["strings", "quotes", "numbers and strings", "commas", "JavaScript"];
+
+var bAnswers =["booleans", "curly brackets", "other arrays", "curly brackets", "terminal / bash"];
+
+var cAnswers = ["alerts", "parentheses", "booleans", "quotes", "for loops"];
+
+var dAnswers = ["numbers", "square brackets", "all of the above", "parentheses", "console.log();"]
+
+// var answerOptions = [
+//   {
+//     //index 0 q1
+//     a: "strings",
+//     b: "booleans",
+//     c: "alerts",
+//     d: "numbers",
+//   },
+//   {
+//     //index 1 q2
+//     a: "quotes",
+//     b: "curly brackets",
+//     c: "parentheses",
+//     d: "square brackets",
+//   },
+//   {
+//     //index 2 q3
+//     a: "numbers and strings",
+//     b: "other arrays",
+//     c: "booleans",
+//     d: "all of the above",
+//   },
+//   {
+//     //index 3 q4
+//     a: "commas",
+//     b: "curly brackets",
+//     c: "quotes",
+//     d: "parentheses",
+//   },
+//   {
+//     //index 4 q5
+//     a: "JavaScript",
+//     b: "terminal / bash",
+//     c: "for loops",
+//     d: "console.log",
+//   },
+
+// ];
 
 //When start button is clicked:
 // TODO: how do I combine these?
 startButtonEl.addEventListener("click", hideInstructions);
 startButtonEl.addEventListener("click", showNextPrompt);
-// startButtonEl.addEventListener("click", showOptionOne);
-// startButtonEl.addEventListener("click", showOptionTwo);
 startButtonEl.addEventListener("click", displayAnswerOptions);
 
 function hideInstructions() {
@@ -99,6 +106,15 @@ function displayAnswerOptions() {
   quizDisplayCell.appendChild(optionsDivEl);
 
   //TODO: for loop
+  //create button for option
+  var optionA = document.createElement("button");
+  //add text to button
+  optionA.textContent = answerOptions[i].a;
+  optionA.classList.add("btn", "btn-info", "btn-block");
+  //append to btn-group
+  optionsDivEl.appendChild(optionA);
+
+  //for loop end
 
   //create button for option1
   var optionOne = document.createElement("button");
