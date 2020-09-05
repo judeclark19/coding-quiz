@@ -2,6 +2,8 @@
 var startButtonEl = document.getElementById("start-button");
 var instructionParagraphs = document.querySelectorAll(".instructions"); //note this is an array
 var quizDisplayCell = document.getElementById("quiz-display-cell");
+var quizDisplayCellBody = document.getElementById("quiz-display-cell-body");
+var allAnswerButtons = document.getElementsByClassName("btn-info");
 
 //Starting intervals
 let currentQuestion=0;
@@ -14,24 +16,32 @@ questionThreePrompt: "Arrays in JavaScript can be used to store:",
 }
 
 var allAnswersArray=[
+    //question 1
     ["strings", "booleans","alerts","numbers"],
+    //question 2
     ["quotes", "curly","paren","square"]
 
 ]
 
-console.log(allAnswersArray[0].length);
 
-// questionOneAnswers: "strings,booleans,alerts,numbers",
-// questionTwoAnswers: "quotes,curly brackets,parentheses,square brackets",
-// questionThreeAnswers: "numbers and strings,other arrays,booleans,all of the above",
-
-
-//When start button is clicked:
+//Event Listeners
 // TODO: how do I combine these?
 startButtonEl.addEventListener("click", hideInstructions);
 startButtonEl.addEventListener("click", showNextPrompt);
-startButtonEl.addEventListener("click", showNextAnswerSet);
+startButtonEl.addEventListener("click", showNextQuestion);
+// for (var i = 0; i < allAnswerButtons.length; i++) {
+//     elements[i].addEventListener('click', hidePrevAnswers);
+// }
 
+//when user chooses an answer
+// https://stackoverflow.com/questions/19655189/javascript-click-event-listener-on-class
+var allAnswerButtons = document.getElementsByClassName("btn-info");
+
+function hidePrevAnswers() {
+    for (let i = 0; i < allAnswerButtons.length; i++) {
+        allAnswerButtons[i].remove();
+      }
+    }
 
 function hideInstructions() {
   for (let i = 0; i < instructionParagraphs.length; i++) {
@@ -41,56 +51,17 @@ function hideInstructions() {
 }
 
 function showNextPrompt() {
-  //create h3 and display the prompt
+  //create h4 and display the prompt
   var questionPromptEl = document.createElement("h4");
   questionPromptEl.textContent = allQuestionsObject.questionOnePrompt;
   quizDisplayCell.appendChild(questionPromptEl);
 }
 
-function showNextAnswerSet() {
-  //create button group div to contain the answers
-  var optionsDivEl = document.createElement("div");
-  optionsDivEl.setAttribute("id", "option-buttons-div");
-  quizDisplayCell.appendChild(optionsDivEl);
-
+function showNextQuestion() {
   for (let i = 0; i < allAnswersArray[currentQuestion].length; i++) {
     var anAnswerButton = document.createElement("button");
     anAnswerButton.textContent = allAnswersArray[currentQuestion][i];
     anAnswerButton.classList.add("btn", "btn-info", "btn-block");
-    optionsDivEl.appendChild(anAnswerButton);
+    quizDisplayCellBody.appendChild(anAnswerButton);
   }
 }
-
-// function displayAnswerButtons() {
-//   for (let i = 0; i < allAnswersObject.questionOneAnswers.length; i++) {
-//     var anAnswerButton = document.createElement("button");
-//     anAnswerButton.textContent = "test";
-//     anAnswerButton.classList.add("btn", "btn-info", "btn-block");
-//     optionsDivEl.appendChild(anAnswerButton);
-//   }
-// }
-
-//   //create button for option1
-//   var optionOne = document.createElement("button");
-//   //add text to button
-//   optionOne.textContent = answerOptions[0].a;
-//   optionOne.classList.add("btn", "btn-info", "btn-block");
-//   //append to btn-group
-//   optionsDivEl.appendChild(optionOne);
-
-//   //create button for option2
-//   var optionTwo = document.createElement("button");
-//   //add text to button
-//   optionTwo.textContent = answerOptions[0].b;
-//   optionTwo.classList.add("btn", "btn-info", "btn-block");
-//   //append to btn-group
-//   optionsDivEl.appendChild(optionTwo);
-
-//   //create button for option3
-//   var optionThree = document.createElement("button");
-//   //add text to button
-//   optionThree.textContent = answerOptions[0].c;
-//   optionThree.classList.add("btn", "btn-info", "btn-block");
-//   //append to btn-group
-//   optionsDivEl.appendChild(optionThree);
-// }
