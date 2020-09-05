@@ -4,18 +4,21 @@ var instructionParagraphs = document.querySelectorAll(".instructions"); //note t
 var quizDisplayCell = document.getElementById("quiz-display-cell");
 var quizDisplayCellBody = document.getElementById("quiz-display-cell-body");
 var questionPromptDiv = document.getElementById("question-prompt-div");
-var answersDivEl = document.getElementById("answers-div");
-var allAnswerButtons = document.getElementsByClassName("btn-info");
+var promptTextDisplayed = document.getElementById("prompt-text");
+var answersWrapperEl = document.getElementById("answers-wrapper");
+var allAnswerButtons = document.querySelectorAll(".btn-info");
 
 //Starting intervals
 let currentQuestion = 0;
 
 //Quiz Questions and Answers
-var allQuestionsArray = [
+var allQuestionsBank = [
   "Commonly used data types DO NOT include:",
   "The condition in an if/else statement is enclosed within:",
   "Arrays in JavaScript can be used to store:",
 ];
+
+var questionBeingDisplayed;
 
 var allAnswersBank = [
   //question 1
@@ -45,21 +48,28 @@ function hideInstructions() {
 }
 
 function showNextPrompt() {
+  questionBeingDisplayed=allQuestionsBank[currentQuestion]
   //create h4 and display the prompt
   var questionPromptEl = document.createElement("h4");
-  questionPromptEl.textContent = allQuestionsArray[currentQuestion];
-  questionPromptDiv.appendChild(questionPromptEl);
+  questionPromptEl.textContent = allQuestionsBank[currentQuestion];
+  promptTextDisplayed.appendChild(questionPromptEl);
 }
 
 function showNextQuestion() {
   answersBeingDisplayed=allAnswersBank[currentQuestion]
-
   for (let i=0; i<answersBeingDisplayed.length; i++){
-    console.log("test");
     var anAnswerButton = document.createElement("button");
     anAnswerButton.textContent = allAnswersBank[currentQuestion][i];
     anAnswerButton.classList.add("btn", "btn-info", "btn-block");
-    quizDisplayCellBody.appendChild(anAnswerButton);
+    anAnswerButton.setAttribute("id","answer-button");
+    answersWrapperEl.appendChild(anAnswerButton);
   }
-  
 }
+
+answersWrapperEl.addEventListener("click", function(event){
+
+  if(event.target.id==="answer-button"){
+    console.log("clicked a button")}
+  else {console.log("NOT button")}
+
+})

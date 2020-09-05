@@ -34,3 +34,11 @@ h2, p, h4 {
     width: 30%!important;
     margin: auto;
 }
+
+#quiz-display-cell-body{
+    border: 2px solid red;
+}
+
+#answers-wrapper{
+    border:2px solid blue;
+}
