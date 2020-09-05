@@ -13,14 +13,14 @@ questionTwoPrompt: "The condition in an if/else statement is enclosed within:",
 questionThreePrompt: "Arrays in JavaScript can be used to store:",
 }
 
-var allAnswersObject={
-    questionOneAnswers: ["strings", "booleans","alerts","numbers"]
+var allAnswersArray=[
+    ["strings", "booleans","alerts","numbers"],
+    ["quotes", "curly","paren","square"]
 
-    }
+]
 
-var stringy = JSON.stringify(allAnswersObject.questionOneAnswers)
+console.log(allAnswersArray[0].length);
 
-console.log(typeof stringy)
 // questionOneAnswers: "strings,booleans,alerts,numbers",
 // questionTwoAnswers: "quotes,curly brackets,parentheses,square brackets",
 // questionThreeAnswers: "numbers and strings,other arrays,booleans,all of the above",
@@ -31,6 +31,7 @@ console.log(typeof stringy)
 startButtonEl.addEventListener("click", hideInstructions);
 startButtonEl.addEventListener("click", showNextPrompt);
 startButtonEl.addEventListener("click", showNextAnswerSet);
+
 
 function hideInstructions() {
   for (let i = 0; i < instructionParagraphs.length; i++) {
@@ -52,9 +53,9 @@ function showNextAnswerSet() {
   optionsDivEl.setAttribute("id", "option-buttons-div");
   quizDisplayCell.appendChild(optionsDivEl);
 
-  for (let i = 0; i < allAnswersObject.questionOneAnswers.length; i++) {
+  for (let i = 0; i < allAnswersArray[currentQuestion].length; i++) {
     var anAnswerButton = document.createElement("button");
-    anAnswerButton.textContent = allAnswersObject.questionOneAnswers[i];
+    anAnswerButton.textContent = allAnswersArray[currentQuestion][i];
     anAnswerButton.classList.add("btn", "btn-info", "btn-block");
     optionsDivEl.appendChild(anAnswerButton);
   }
