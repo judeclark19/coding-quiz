@@ -17,7 +17,7 @@ nextButton.addEventListener("click", () => {
   nextQuestionSlide();
 });
 modalCloseButton.addEventListener('click', () => {
-  console.log("close the modal");
+  modalParent.classList.add('hide');
 })
 
 

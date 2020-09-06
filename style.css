@@ -153,5 +153,5 @@ hr {
     font-weight:bold;
     font-size: 20pt;
     cursor: pointer;
-    border: solid 2px yellow;
+    /* border: solid 2px yellow; */
 }
