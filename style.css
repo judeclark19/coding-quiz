@@ -8,7 +8,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #e2e2c6!important;
+    background-color: beige!important;
     font-family: 'Kumbh Sans', sans-serif;
 }
 
@@ -41,7 +41,7 @@ li a:hover{
 }
 
 #main-container{
-    border: 3px outset #3d0066;
+    border: 3px outset #886dbd;
     box-shadow: 0 0 3px 1px;
     border-radius:40px;
     margin-top: 30px;

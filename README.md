@@ -4,6 +4,9 @@
 *[Build A Quiz App With JavaScript](https://www.youtube.com/watch?v=riDzcEQbX6k)
 *[How To Create A Modal In JavaScript and CSS](https://www.youtube.com/watch?v=KjQ8uvAt9kQ)
 *[Hexidecimal color code for transparency](https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4)
+*[Simple Countdown Timer with JavaScript](https://www.youtube.com/watch?v=x7WJEmxNlEs)
+
+
 ## Answer Key
 <details>
   <summary>Spoiler alert! Click to reveal question and answer key.</summary>

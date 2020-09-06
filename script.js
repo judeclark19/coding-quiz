@@ -6,13 +6,14 @@ const questionPromptEl = document.getElementById("question-prompt-text");
 const answerButtonsDiv = document.getElementById("answer-buttons");
 const questionsRight = document.getElementById("questions-right");
 const totalQuestionsEl = document.getElementById("total-questions");
-const gameOverModalParent = document.querySelector('.game-over-modal-parent');
-const scoreboardModalParent = document.querySelector('.scoreboard-modal-parent');
-const modalCloseButton = document.querySelector('.modal-close-button');
-const scoreSubmitButton = document.querySelector('.submit-btn');
-const nameInputField = document.getElementById('name-input-field');
-const timer = document.getElementById('timer-readout');
-
+const gameOverModalParent = document.querySelector(".game-over-modal-parent");
+const scoreboardModalParent = document.querySelector(
+  ".scoreboard-modal-parent"
+);
+const modalCloseButton = document.querySelector(".modal-close-button");
+const scoreSubmitButton = document.querySelector(".submit-btn");
+const nameInputField = document.getElementById("name-input-field");
+const timer = document.getElementById("timer-readout");
 
 //Question and answer bank
 const quizQuestions = [
@@ -44,7 +45,8 @@ const quizQuestions = [
     ],
   },
   {
-    question: "String values must be enclosed within ______ when being assigned to variables:",
+    question:
+      "String values must be enclosed within ______ when being assigned to variables:",
     answers: [
       { text: "commas", correct: false },
       { text: "curly brackets", correct: false },
@@ -53,7 +55,8 @@ const quizQuestions = [
     ],
   },
   {
-    question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+    question:
+      "A very useful tool used during development and debugging for printing content to the debugger is:",
     answers: [
       { text: "JavaScript", correct: false },
       { text: "terminal / bash", correct: false },
@@ -63,11 +66,11 @@ const quizQuestions = [
   },
 ];
 
-
 //Other variables
 var currentQuestionIndex = 0;
 var totalCorrect = 0;
-var gameDuration = 75;
+var gameDurationMin = 0.1;
+let gameDurationSec = gameDurationMin * 60;
 const totalQuestions = quizQuestions.length;
 
 //Event listeners
@@ -76,15 +79,14 @@ nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
   nextQuestionSlide();
 });
-modalCloseButton.addEventListener('click', () => {
-  gameOverModalParent.classList.add('hide');
-})
+modalCloseButton.addEventListener("click", () => {
+  gameOverModalParent.classList.add("hide");
+});
 // TODO: put these stored values on the scoreboard
-scoreSubmitButton.addEventListener('click', () =>{
+scoreSubmitButton.addEventListener("click", () => {
   console.log("score submitted");
-  console.log(nameInputField.value)
-})
-
+  console.log(nameInputField.value);
+});
 
 //Functions
 
@@ -95,9 +97,37 @@ function startGame() {
   startButton.classList.add("hide");
   introSlide.classList.add("hide");
   answerButtonsDiv.classList.remove("hide");
-  timer.innerHTML = gameDuration;
   showNextQuestion();
 }
+//Start the timer
+var countdown = setInterval(function () {
+  console.log("interval triggered");
+  let minuteHand = Math.floor(gameDurationSec / 60);
+  let secondHand = gameDurationSec % 60;
+  if (secondHand < 10) {
+    secondHand = "0" + secondHand;
+  }
+  gameDurationSec--;
+  timer.innerHTML = `${minuteHand}:${secondHand}`;
+  if (gameDurationSec <= -1) {
+    clearInterval(countdown);
+  }
+}, 1000);
+// setInterval(countDown, 1000);
+// function countDown() {
+//   // setInterval(countDown, 1000);
+//   let minuteHand = Math.floor(gameDurationSec / 60);
+//   let secondHand = gameDurationSec % 60;
+//   if (secondHand < 10) {
+//     secondHand = "0" + secondHand;
+//   }
+//   timer.innerHTML = `${minuteHand}:${secondHand}`;
+//   if (secondHand<=0){
+//     clearInterval(gameDurationSec);
+//   }
+//   gameDurationSec--;
+// }
+
 //Show next question once the game is already underway
 function nextQuestionSlide() {
   resetState();
@@ -132,21 +162,20 @@ function selectAnswer(event) {
   Array.from(answerButtonsDiv.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
-  if(selectedButton.dataset.correct){
+  if (selectedButton.dataset.correct) {
     totalCorrect++;
     console.log(totalCorrect);
   }
-  if (quizQuestions.length>currentQuestionIndex+1){
-nextButton.classList.remove("hide");
+  if (quizQuestions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove("hide");
   } else {
     //Game Over
-    gameOverModalParent.classList.add('modal-active')
-    startButton.innerText = "Play Again"
+    gameOverModalParent.classList.add("modal-active");
+    startButton.innerText = "Play Again";
     startButton.classList.remove("hide");
     questionsRight.innerHTML = totalCorrect;
     totalQuestionsEl.innerHTML = totalQuestions;
   }
-  
 }
 
 function setStatusClass(element, correct) {
@@ -164,4 +193,3 @@ function clearStatusClass(element) {
   element.classList.remove("btn-success");
   element.classList.remove("btn-danger");
 }
-
