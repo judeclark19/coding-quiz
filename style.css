@@ -105,7 +105,7 @@ hr {
     display:none!important;
 }
 
-.modal-parent{
+.game-over-modal-parent, .scoreboard-modal-parent{
     position: fixed;
     width: 100%;
     height: 100vh;

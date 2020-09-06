@@ -4,9 +4,13 @@ const nextButton = document.getElementById("next-btn");
 const introSlide = document.getElementById("intro-slide");
 const questionPromptEl = document.getElementById("question-prompt-text");
 const answerButtonsDiv = document.getElementById("answer-buttons");
-const modalParent = document.querySelector('.modal-parent');
-const modalCloseButton = document.querySelector('.modal-close-button');
 const questionsRight = document.getElementById("questions-right");
+const totalQuestionsEl = document.getElementById("total-questions");
+const gameOverModalParent = document.querySelector('.game-over-modal-parent');
+const scoreboardModalParent = document.querySelector('.scoreboard-modal-parent');
+const modalCloseButton = document.querySelector('.modal-close-button');
+const scoreSubmitButton = document.querySelector('.submit-btn');
+
 
 //Question and answer bank
 const quizQuestions = [
@@ -61,7 +65,7 @@ const quizQuestions = [
 //Other variables
 var currentQuestionIndex = 0;
 var totalCorrect = 0;
-var totalQuestions = quizQuestions.length;
+const totalQuestions = quizQuestions.length;
 
 //Event listeners
 startButton.addEventListener("click", startGame);
@@ -70,7 +74,10 @@ nextButton.addEventListener("click", () => {
   nextQuestionSlide();
 });
 modalCloseButton.addEventListener('click', () => {
-  modalParent.classList.add('hide');
+  gameOverModalParent.classList.add('hide');
+})
+scoreSubmitButton.addEventListener('click', () =>{
+  console.log("score submitted");
 })
 
 
@@ -126,11 +133,12 @@ function selectAnswer(event) {
   if (quizQuestions.length>currentQuestionIndex+1){
 nextButton.classList.remove("hide");
   } else {
-    //TODO: pop up the modal here
-    modalParent.classList.add('modal-active')
+    //Game Over
+    gameOverModalParent.classList.add('modal-active')
     startButton.innerText = "Play Again"
     startButton.classList.remove("hide");
     questionsRight.innerHTML = totalCorrect;
+    totalQuestionsEl.innerHTML = totalQuestions;
   }
   
 }
