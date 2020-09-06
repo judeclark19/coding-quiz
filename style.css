@@ -63,17 +63,18 @@ hr {
     position: absolute;
 } */
 
-#target-me{
+/* #target-me{
     border: 2px solid transparent;
     width: 100px;
-}
+} */
 
 
-#timer-readout{ /* TODO: get this to justify right */
+#timer-readout{
     /* border: 2px solid yellow; */
     min-height: 0px;
     float: right;
     text-align: center;
+    display: inline-flex;
     /* position: relative; */
     /* top: 0; */
     /* left: 0; */
