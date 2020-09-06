@@ -19,9 +19,9 @@
      * __alerts (correct)__
      * numbers
   2. The condition in an if/else statement is enclosed within:
-     * __quotes (correct)__
+     * quotes
      * curly brackets
-     * parentheses
+     * __parentheses (correct)__
      * square brackets
   3. Arrays in JavaScript can be used to store:
      * numbers and strings
