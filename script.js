@@ -10,6 +10,8 @@ const gameOverModalParent = document.querySelector('.game-over-modal-parent');
 const scoreboardModalParent = document.querySelector('.scoreboard-modal-parent');
 const modalCloseButton = document.querySelector('.modal-close-button');
 const scoreSubmitButton = document.querySelector('.submit-btn');
+const nameInputField = document.getElementById('name-input-field');
+const timer = document.getElementById('timer-readout');
 
 
 //Question and answer bank
@@ -65,6 +67,7 @@ const quizQuestions = [
 //Other variables
 var currentQuestionIndex = 0;
 var totalCorrect = 0;
+var gameDuration = 75;
 const totalQuestions = quizQuestions.length;
 
 //Event listeners
@@ -76,8 +79,10 @@ nextButton.addEventListener("click", () => {
 modalCloseButton.addEventListener('click', () => {
   gameOverModalParent.classList.add('hide');
 })
+// TODO: put these stored values on the scoreboard
 scoreSubmitButton.addEventListener('click', () =>{
   console.log("score submitted");
+  console.log(nameInputField.value)
 })
 
 
@@ -90,6 +95,7 @@ function startGame() {
   startButton.classList.add("hide");
   introSlide.classList.add("hide");
   answerButtonsDiv.classList.remove("hide");
+  timer.innerHTML = gameDuration;
   showNextQuestion();
 }
 //Show next question once the game is already underway

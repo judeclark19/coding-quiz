@@ -87,7 +87,8 @@
 
     <div class="container" id="main-container">
       <div id="card-body">
-        <h2>Coding Knowledge Time Trial</h2>
+        <span id="timer-readout" class="badge badge-light">TIMER</span>
+        <span id="target-me"><h2>Coding Knowledge Time Trial</h2></span>
         <hr />
         <div id="intro-slide">
           <p>
@@ -122,7 +123,7 @@
     <div id="game-over-mod"><h1>Quiz Complete!</h1>
       <p>You got <span id="questions-right"></span> out of <span id="total-questions"></span> questions correct in Z seconds.</p>
     <label for="name">Enter your name for the scoreboard:</label>
-    <input type="text" name="name">
+    <input type="text" id="name-input-field" name="name">
     <button class="btn btn-secondary submit-btn">Submit</button>
        <img src="./Assets/modalcloseicon.png" width="25px" class="modal-close-button">
     </div>

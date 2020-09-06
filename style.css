@@ -58,6 +58,31 @@ hr {
     border-top: 3px solid #886dbd;
 }
 
+
+/* #card-body{
+    position: absolute;
+} */
+
+#target-me{
+    border: 2px solid transparent;
+    width: 100px;
+}
+
+
+#timer-readout{ /* TODO: get this to justify right */
+    /* border: 2px solid yellow; */
+    min-height: 0px;
+    float: right;
+    text-align: center;
+    /* position: relative; */
+    /* top: 0; */
+    /* left: 0; */
+}
+
+.badge{
+    font-size: 15pt;
+}
+
 /* Start button Styling */
 .btn-primary{
     background-color: #3d0066!important;
