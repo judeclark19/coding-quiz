@@ -69,11 +69,12 @@ const quizQuestions = [
 //Other variables
 var currentQuestionIndex = 0;
 var totalCorrect = 0;
-var gameDurationMin = 0.1;
+const gameDurationMin = 0.1;
 let gameDurationSec = gameDurationMin * 60;
 const totalQuestions = quizQuestions.length;
 
 //Event listeners
+//start button triggers startGame which triggers resetState and showNextQuestion
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;

@@ -59,14 +59,7 @@ hr {
 }
 
 
-/* #card-body{
-    position: absolute;
-} */
-
-/* #target-me{
-    border: 2px solid transparent;
-    width: 100px;
-} */
+/* TODO: Center the questions */
 
 
 #timer-readout{
@@ -99,19 +92,23 @@ hr {
 /* Answer buttons styling */
 .btn-success {
     color:#white!important;
+    max-width: 50%;
 }
 .btn-danger {
     color:#white!important;
+    max-width: 50%;
 }
 
 /* Next button styling */
 .btn-outline-info{
     color:#886dbd;
     border-color:#886dbd;
+    max-width: 50%;
 }
 .btn-outline-info:hover{
     background-color:#886dbd;
     border-color:#886dbd;
+    /* margin-left:50px; */
 }
 
 #question-prompt-text{
@@ -170,6 +167,11 @@ hr {
 
 .submit-btn{
     margin-top: 25px;
+    background-color:#dba8ac;
+}
+
+.submit-btn:hover{
+    background-color: #cc92c2;
 }
 
 .modal-close-button{
