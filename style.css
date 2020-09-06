@@ -37,13 +37,13 @@ li a:hover{
     padding-left: 15px;
     padding-right: 15px;
     background-color: #40B3A1;
-    border-radius:10px;
+    border-radius:20px;
 }
 
 #main-container{
     border: 3px outset #3d0066;
     box-shadow: 0 0 3px 1px;
-    border-radius:10px;
+    border-radius:40px;
     margin-top: 30px;
     /* min-height: 50vw; */
     padding: 30px;
@@ -58,16 +58,28 @@ hr {
     border-top: 3px solid #886dbd;
 }
 
+.btn-primary{
+    background-color: #3d0066!important;
+    border-color: #7049ab;
+}
+
+.btn-primary:hover{
+    background-color:#7049ab!important;
+}
+
+.btn-primary:active{
+    background-color:#3d0066!important;
+}
+
 #question-prompt-text{
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
     margin-bottom: 20px;
     font-size: larger;
 }
 
-
 /* TODO: I would like these to be centered and only the necessary width for content */
 .btn-stack{
-    border: 2px solid purple;
+    /* border: 2px solid purple; */
     display: grid!important;
     gap: 10px;
 }
@@ -76,10 +88,35 @@ hr {
     display:none!important;
 }
 
-/* #intro-slide{
-    border-style: ridge;
-    border-radius: 5px;
-    max-width: 700px;
+.modal-parent{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #00000050;
+    display: flex;
     justify-content: center;
-    algin-items: center;
-} */
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s opacity 0.5s,
+}
+
+#game-over-mod{
+    background-color: white!important;
+    border-style: outset;
+    border-radius: 25px;
+    color:#3d0066;
+    width: 50%;
+    height: 35%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid yellow; */
+}
+
+.submit-btn{
+    margin-top: 25px;
+}

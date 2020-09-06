@@ -62,6 +62,7 @@ function selectAnswer(event) {
   });
   if (quizQuestions.length>currentQuestionIndex+1){
 nextButton.classList.remove("hide");
+//show score result
   } else {
     startButton.innerText = "Play Again"
     startButton.classList.remove("hide");
