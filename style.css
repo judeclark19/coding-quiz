@@ -58,17 +58,34 @@ hr {
     border-top: 3px solid #886dbd;
 }
 
+/* Start button Styling */
 .btn-primary{
     background-color: #3d0066!important;
     border-color: #7049ab;
 }
-
 .btn-primary:hover{
     background-color:#7049ab!important;
 }
-
 .btn-primary:active{
     background-color:#3d0066!important;
+}
+
+/* Answer buttons styling */
+.btn-success {
+    color:#white!important;
+}
+.btn-danger {
+    color:#white!important;
+}
+
+/* Next button styling */
+.btn-outline-info{
+    color:#886dbd;
+    border-color:#886dbd;
+}
+.btn-outline-info:hover{
+    background-color:#886dbd;
+    border-color:#886dbd;
 }
 
 #question-prompt-text{
@@ -94,13 +111,18 @@ hr {
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: #00000050;
+    background-color: #00000060;
     display: flex;
     justify-content: center;
     align-items: center;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s opacity 0.5s,
+    transition: visibility 0s, opacity .3s;
+}
+
+.modal-active{
+    visibility: visible;
+    opacity: 1;
 }
 
 #game-over-mod{
@@ -108,8 +130,11 @@ hr {
     border-style: outset;
     border-radius: 25px;
     color:#3d0066;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    position:relative;
     width: 50%;
-    height: 35%;
+    min-height: 35%;
     display:flex;
     flex-direction:column;
     justify-content: center;
@@ -119,4 +144,14 @@ hr {
 
 .submit-btn{
     margin-top: 25px;
+}
+
+.modal-close-button{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-weight:bold;
+    font-size: 20pt;
+    cursor: pointer;
+    border: solid 2px yellow;
 }

@@ -4,6 +4,8 @@ const nextButton = document.getElementById("next-btn");
 const introSlide = document.getElementById("intro-slide");
 const questionPromptEl = document.getElementById("question-prompt-text");
 const answerButtonsDiv = document.getElementById("answer-buttons");
+const modalParent = document.querySelector('.modal-parent');
+const modalCloseButton = document.querySelector('.modal-close-button');
 
 //Other variables
 var currentQuestionIndex = 0;
@@ -14,6 +16,10 @@ nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
   nextQuestionSlide();
 });
+modalCloseButton.addEventListener('click', () => {
+  console.log("close the modal");
+})
+
 
 //Functions
 
@@ -37,7 +43,7 @@ function showNextQuestion(question) {
   quizQuestions[currentQuestionIndex].answers.forEach((answer) => {
     const button = document.createElement("button");
     button.innerText = answer.text;
-    button.setAttribute("class", "btn btn-info");
+    button.setAttribute("class", "btn btn-outline-info");
     if (answer.correct) {
       button.dataset.correct = answer.correct;
     }
@@ -62,8 +68,9 @@ function selectAnswer(event) {
   });
   if (quizQuestions.length>currentQuestionIndex+1){
 nextButton.classList.remove("hide");
-//show score result
   } else {
+    //TODO: pop up the modal here
+    modalParent.classList.add('modal-active')
     startButton.innerText = "Play Again"
     startButton.classList.remove("hide");
   }
@@ -74,10 +81,10 @@ function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {
     element.classList.add("btn-success");
-    element.classList.remove("btn-info");
+    element.classList.remove("btn-outline-info");
   } else {
     element.classList.add("btn-danger");
-    element.classList.remove("btn-info");
+    element.classList.remove("btn-outline-info");
   }
 }
 
