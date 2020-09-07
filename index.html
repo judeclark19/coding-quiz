@@ -47,10 +47,13 @@
     />
 
     <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
-     <!-- My CSS -->
-     <link rel="stylesheet" href="./style.css" />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <!-- Nav bar begin -->
@@ -69,11 +72,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link active-page" href="#"
-              >Take the Quiz <span class="sr-only">(current)</span></a
-            >
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="#">View Scoreboard</a>
           </li>
@@ -81,20 +79,25 @@
       </div>
     </nav>
     <!-- Nav bar end -->
-    
+
     <!-- Timer -->
-<div id="timer-readout"></div>
+    <!-- <div id="timer-readout"></div> -->
 
     <!-- Card begin -->
     <div class="container" id="main-container">
       <div id="card-body">
-        
         <span id="target-me"><h2>Coding Knowledge Time Trial</h2></span>
         <hr />
         <div id="intro-slide">
           <p>
-            A timer will appear in the upper right corner of the page when you click the start button.</p><p>Try to answer the following code-related questions within the time limit.</p><p>Note: incorrect answers will take 10 seconds off the clock!
+            A timer will appear in the upper right corner of the page when you
+            click the start button.
           </p>
+          <p>
+            Try to answer the following code-related questions within the time
+            limit.
+          </p>
+          <p>Note: incorrect answers will take 10 seconds off the clock!</p>
         </div>
         <div id="question-slide">
           <div id="question-prompt-text">
@@ -119,26 +122,44 @@
     </div>
     <!-- Card End -->
 
-  <!-- Game over Modal -->
-  <div class="modal-bg" id="game-over-mod-bg">
-    <div id="game-over-mod"><h1>Quiz Complete!</h1>
-      <p>You got <span id="questions-right"></span> out of <span id="total-questions"></span> questions correct<br />with <span id="time-remainder"></span> seconds remaining.</p>
-    <label for="name">Enter your name for the scoreboard:</label>
-    <input type="text" id="name-input-field" name="name">
-    <button class="btn btn-secondary submit-btn">Submit</button>
-       <img src="./Assets/modalcloseicon.png" width="25px" id="gom-close-button">
-    </div>
-  </div>
-
-    <!-- Scoreboard Modal -->
-    <div class="modal-bg" id="scoreboard-mod-bg">
-      <div id="scoreboard-mod"><h1>Scoreboard</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi totam aliquid asperiores minima esse, libero dignissimos mollitia ratione quod? Tempore?</p>
-         <img src="./Assets/modalcloseicon.png" width="25px" id="scoreMod-close-button">
+    <!-- Game over Modal -->
+    <div class="modal-bg" id="game-over-mod-bg">
+      <div id="game-over-mod">
+        <h1>Quiz Complete!</h1>
+        <p>
+          You got <span id="questions-right"></span> out of
+          <span id="total-questions"></span> questions correct<br />with
+          <span id="time-remainder"></span> seconds remaining.
+        </p>
+        <label for="name">Enter your name for the scoreboard:</label>
+        <input type="text" id="name-input-field" name="name" />
+        <button class="btn btn-secondary submit-btn">Submit</button>
+        <img
+          src="./Assets/modalcloseicon.png"
+          width="25px"
+          id="gom-close-button"
+        />
       </div>
     </div>
 
-  <!-- TODO: add footer? -->
+    <!-- Scoreboard Modal -->
+    <div class="modal-bg" id="scoreboard-mod-bg">
+      <div id="scoreboard-mod">
+        <h1>Scoreboard</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi totam
+          aliquid asperiores minima esse, libero dignissimos mollitia ratione
+          quod? Tempore?
+        </p>
+        <img
+          src="./Assets/modalcloseicon.png"
+          width="25px"
+          id="scoreMod-close-button"
+        />
+      </div>
+    </div>
+
+    <!-- TODO: add footer? -->
 
     <!-- My JS -->
     <script src="./script.js" type="text/javascript"></script>

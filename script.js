@@ -13,7 +13,7 @@ const scoreboardModal = document.getElementById("scoreboard-mod-bg");
 const scoreModCloseButton = document.getElementById("scoreMod-close-button");
 const scoreSubmitButton = document.querySelector(".submit-btn");
 const nameInputField = document.getElementById("name-input-field");
-const timer = document.getElementById("timer-readout");
+// const timer = document.getElementById("timer-readout");
 
 //Question and answer bank
 const quizQuestions = [
@@ -104,6 +104,11 @@ function startGame() {
 }
 //Start the timer
 function startTimer(){
+
+  var timer = document.createElement("div");
+timer.setAttribute("id", "timer-readout");
+document.body.appendChild(timer);
+
   gameDurationInSec = gameDurationInMin * 60;
   timer.innerHTML = "BEGIN!"
 var myInterval = setInterval(() => {
