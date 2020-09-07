@@ -7,10 +7,7 @@ const answerButtonsDiv = document.getElementById("answer-buttons");
 const questionsRight = document.getElementById("questions-right");
 const totalQuestionsEl = document.getElementById("total-questions");
 const timeRemainderEl =document.getElementById("time-remainder");
-const gameOverModalParent = document.querySelector(".game-over-modal-parent");
-const scoreboardModalParent = document.querySelector(
-  ".scoreboard-modal-parent"
-);
+const gameOverModal = document.getElementById("game-over-mod-bg");
 const modalCloseButton = document.querySelector(".modal-close-button");
 const scoreSubmitButton = document.querySelector(".submit-btn");
 const nameInputField = document.getElementById("name-input-field");
@@ -81,7 +78,7 @@ nextButton.addEventListener("click", () => {
   nextQuestionSlide();
 });
 modalCloseButton.addEventListener("click", () => {
-  gameOverModalParent.classList.add("hide");
+  gameOverModal.classList.add("hide");
 });
 // TODO: put these stored values on the scoreboard
 scoreSubmitButton.addEventListener("click", () => {
@@ -168,7 +165,7 @@ function selectAnswer(event) {
 }
 
 function gameOver() {
-  gameOverModalParent.classList.add("modal-active");
+  gameOverModal.classList.add("modal-active");
   startButton.innerText = "Play Again";
   startButton.classList.remove("hide");
   questionsRight.innerHTML = totalCorrect;
