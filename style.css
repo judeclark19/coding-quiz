@@ -59,19 +59,16 @@ hr {
 }
 
 
-/* TODO: Center the questions */
-
-
-
+/* TODO: can't for the life of me get the timer to align to the right of its div */
 #timer-readout{
-    /* border: 2px solid yellow; */
-    min-height: 0px;
-    float: right;
-    text-align: center;
+    border: 2px solid greenyellow;
+   min-width: 100px;
     display: inline-flex;
-    /* position: relative; */
-    /* top: 0; */
-    /* left: 0; */
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    margin-left:auto;
+    margin-right:0;
 }
 
 .badge{

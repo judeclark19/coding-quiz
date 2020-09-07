@@ -69,8 +69,8 @@ const quizQuestions = [
 //Other variables
 var currentQuestionIndex = 0;
 var totalCorrect = 0;
-const gameDurationMin = 0.1;
-let gameDurationSec = gameDurationMin * 60;
+const gameDurationInMin = 0.1;
+let gameDurationInSec = gameDurationInMin * 60;
 const totalQuestions = quizQuestions.length;
 
 //Event listeners
@@ -99,35 +99,30 @@ function startGame() {
   introSlide.classList.add("hide");
   answerButtonsDiv.classList.remove("hide");
   showNextQuestion();
+  startTimer();
 }
 //Start the timer
-var countdown = setInterval(function () {
-  console.log("interval triggered");
-  let minuteHand = Math.floor(gameDurationSec / 60);
-  let secondHand = gameDurationSec % 60;
+function startTimer(){
+  timer.innerHTML = "BEGIN!"
+var myInterval = setInterval(() => {
+
+  console.log("seconds passing");
+
+  gameDurationInSec--;
+
+  let minuteHand = Math.floor(gameDurationInSec / 60);
+  let secondHand = gameDurationInSec % 60;
   if (secondHand < 10) {
-    secondHand = "0" + secondHand;
+         secondHand = "0" + secondHand;
+       }
+
+       timer.innerHTML = `${minuteHand}:${secondHand}`;
+
+  if (gameDurationInSec <= 0){
+    clearInterval(myInterval);
   }
-  gameDurationSec--;
-  timer.innerHTML = `${minuteHand}:${secondHand}`;
-  if (gameDurationSec <= -1) {
-    clearInterval(countdown);
-  }
-}, 1000);
-// setInterval(countDown, 1000);
-// function countDown() {
-//   // setInterval(countDown, 1000);
-//   let minuteHand = Math.floor(gameDurationSec / 60);
-//   let secondHand = gameDurationSec % 60;
-//   if (secondHand < 10) {
-//     secondHand = "0" + secondHand;
-//   }
-//   timer.innerHTML = `${minuteHand}:${secondHand}`;
-//   if (secondHand<=0){
-//     clearInterval(gameDurationSec);
-//   }
-//   gameDurationSec--;
-// }
+}, (1000));
+}
 
 //Show next question once the game is already underway
 function nextQuestionSlide() {
