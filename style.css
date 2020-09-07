@@ -178,7 +178,7 @@ hr {
   background-color: #cc92c2;
 }
 
-#gom-close-button {
+#gom-close-button, #scoreMod-close-button {
   position: absolute;
   top: 10px;
   left: 20px;

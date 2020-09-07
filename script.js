@@ -1,4 +1,5 @@
 //DOM Elements
+const viewScoreboard = document.getElementById("view-scoreboard");
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const introSlide = document.getElementById("intro-slide");
@@ -74,6 +75,9 @@ let gameDurationInSec = gameDurationInMin * 60;
 const totalQuestions = quizQuestions.length;
 
 //Event listeners
+viewScoreboard.addEventListener("click", () => {
+  scoreboardModal.classList.add("modal-active");
+})
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -82,10 +86,11 @@ nextButton.addEventListener("click", () => {
 gomCloseButton.addEventListener("click", () => {
   gameOverModal.classList.remove("modal-active");
 });
+scoreModCloseButton.addEventListener("click", () => {
+  scoreboardModal.classList.remove("modal-active");
+});
 // TODO: put these stored values on the scoreboard
 scoreSubmitButton.addEventListener("click", () => {
-  console.log("score submitted");
-  console.log(nameInputField.value);
   gameOverModal.classList.remove("modal-active");
   scoreboardModal.classList.add("modal-active");
 });
