@@ -75,7 +75,6 @@ let gameDurationInSec = gameDurationInMin * 60;
 const totalQuestions = quizQuestions.length;
 
 //Event listeners
-//start button triggers startGame which triggers resetState and showNextQuestion
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -104,6 +103,7 @@ function startGame() {
 }
 //Start the timer
 function startTimer(){
+  gameDurationInSec = gameDurationInMin * 60;
   timer.innerHTML = "BEGIN!"
 var myInterval = setInterval(() => {
 

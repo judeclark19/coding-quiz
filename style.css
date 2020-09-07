@@ -63,6 +63,7 @@ hr {
 /* TODO: style this */
 #timer-readout{
     border: 2px solid greenyellow;
+    font-size: 15pt;
    min-width: 100px;
     display: inline-flex;
     position: absolute;
@@ -72,11 +73,7 @@ hr {
     margin-right:0;
 }
 
-.badge{
-    font-size: 15pt;
-}
-
-/* Start button Styling */
+/* Styling the start button */
 .btn-primary{
     background-color: #3d0066!important;
     border-color: #7049ab;
@@ -88,18 +85,26 @@ hr {
     background-color:#3d0066!important;
 }
 
-/* buttons styling */
+#question-prompt-text{
+    /* border: 2px solid orange; */
+    margin-bottom: 20px;
+    font-size: larger;
+}
+
+/* styling  other buttons*/
+/* correct answer */
 .btn-success {
     color:#white!important;
     min-width: 50%;
     margin: 0 auto;
 }
+/* incorrect answer */
 .btn-danger {
     color:#white!important;
     min-width: 50%;
     margin: 0 auto;
 }
-
+/* Next question button */
 .btn-outline-info{
     color:#886dbd;
     border-color:#886dbd;
@@ -110,12 +115,6 @@ hr {
     background-color:#886dbd;
     border-color:#886dbd;
     /* margin-left:50px; */
-}
-
-#question-prompt-text{
-    /* border: 2px solid orange; */
-    margin-bottom: 20px;
-    font-size: larger;
 }
 
 /* TODO: I would like these to be centered and only the necessary width for content */
