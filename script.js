@@ -8,7 +8,9 @@ const questionsRight = document.getElementById("questions-right");
 const totalQuestionsEl = document.getElementById("total-questions");
 const timeRemainderEl =document.getElementById("time-remainder");
 const gameOverModal = document.getElementById("game-over-mod-bg");
-const modalCloseButton = document.querySelector(".modal-close-button");
+const gomCloseButton = document.getElementById("gom-close-button");
+const scoreboardModal = document.getElementById("scoreboard-mod-bg");
+const scoreModCloseButton = document.getElementById("scoreMod-close-button");
 const scoreSubmitButton = document.querySelector(".submit-btn");
 const nameInputField = document.getElementById("name-input-field");
 const timer = document.getElementById("timer-readout");
@@ -77,13 +79,15 @@ nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
   nextQuestionSlide();
 });
-modalCloseButton.addEventListener("click", () => {
-  gameOverModal.classList.add("hide");
+gomCloseButton.addEventListener("click", () => {
+  gameOverModal.classList.remove("modal-active");
 });
 // TODO: put these stored values on the scoreboard
 scoreSubmitButton.addEventListener("click", () => {
   console.log("score submitted");
   console.log(nameInputField.value);
+  gameOverModal.classList.remove("modal-active");
+  scoreboardModal.classList.add("modal-active");
 });
 
 //Functions

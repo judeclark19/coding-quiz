@@ -148,7 +148,7 @@ hr {
     opacity: 1;
 }
 
-#game-over-mod{
+#game-over-mod, #scoreboard-mod{
     background-color: white!important;
     border-style: outset;
     border-radius: 25px;
@@ -174,7 +174,7 @@ hr {
     background-color: #cc92c2;
 }
 
-.modal-close-button{
+#gom-close-button{
     position: absolute;
     top: 10px;
     left: 20px;
