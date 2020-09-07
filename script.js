@@ -6,6 +6,7 @@ const questionPromptEl = document.getElementById("question-prompt-text");
 const answerButtonsDiv = document.getElementById("answer-buttons");
 const questionsRight = document.getElementById("questions-right");
 const totalQuestionsEl = document.getElementById("total-questions");
+const timeRemainderEl =document.getElementById("time-remainder");
 const gameOverModalParent = document.querySelector(".game-over-modal-parent");
 const scoreboardModalParent = document.querySelector(
   ".scoreboard-modal-parent"
@@ -106,8 +107,6 @@ function startTimer(){
   timer.innerHTML = "BEGIN!"
 var myInterval = setInterval(() => {
 
-  console.log("seconds passing");
-
   gameDurationInSec--;
 
   let minuteHand = Math.floor(gameDurationInSec / 60);
@@ -120,6 +119,7 @@ var myInterval = setInterval(() => {
 
   if (gameDurationInSec <= 0){
     clearInterval(myInterval);
+    gameOver();
   }
 }, (1000));
 }
@@ -154,26 +154,29 @@ function resetState() {
 //when an answer is selected
 function selectAnswer(event) {
   var selectedButton = event.target;
-  console.log(selectedButton.dataset.correct);
   Array.from(answerButtonsDiv.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
   if (selectedButton.dataset.correct) {
     totalCorrect++;
-    console.log(totalCorrect);
   }
   if (quizQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
-    //Game Over
-    gameOverModalParent.classList.add("modal-active");
-    startButton.innerText = "Play Again";
-    startButton.classList.remove("hide");
-    questionsRight.innerHTML = totalCorrect;
-    totalQuestionsEl.innerHTML = totalQuestions;
+    gameOver();
   }
 }
 
+function gameOver() {
+  gameOverModalParent.classList.add("modal-active");
+  startButton.innerText = "Play Again";
+  startButton.classList.remove("hide");
+  questionsRight.innerHTML = totalCorrect;
+  totalQuestionsEl.innerHTML = totalQuestions;
+  timeRemainderEl.innerHTML = gameDurationInSec;
+}
+
+//showing shows right answer after the user has guessed
 function setStatusClass(element, correct) {
   clearStatusClass(element);
   if (correct) {

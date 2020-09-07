@@ -59,7 +59,8 @@ hr {
 }
 
 
-/* TODO: can't for the life of me get the timer to align to the right of its div */
+/* TODO: can't for the life of me get the timer to align to the right of its div*/
+/* TODO: style this */
 #timer-readout{
     border: 2px solid greenyellow;
    min-width: 100px;
