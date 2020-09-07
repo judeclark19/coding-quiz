@@ -71,9 +71,9 @@ const quizQuestions = [
 //Other variables
 var currentQuestionIndex = 0;
 var totalCorrect = 0;
-const gameDurationInMin = 1;
-let gameDurationInSec = gameDurationInMin * 60;
-const totalQuestions = quizQuestions.length;
+var gameDurationInSec = 15;
+var gameDurationInMin = gameDurationInSec/60;
+var totalQuestions = quizQuestions.length;
 
 //Event listeners
 viewScoreboard.addEventListener("click", () => {
@@ -103,7 +103,7 @@ scoreSubmitButton.addEventListener("click", () => {
 function startGame() {
   currentQuestionIndex = 0;
   totalCorrect = 0;
-  resetState();
+  resetState(); //TODO: what is this
   startButton.classList.add("hide");
   introSlide.classList.add("hide");
   answerButtonsDiv.classList.remove("hide");
@@ -116,7 +116,6 @@ function startTimer() {
   timer.setAttribute("id", "timer-readout");
   document.body.appendChild(timer);
 
-  gameDurationInSec = gameDurationInMin * 60;
   timer.innerHTML = "BEGIN!";
   var myInterval = setInterval(() => {
     gameDurationInSec--;
@@ -128,8 +127,8 @@ function startTimer() {
     }
 
     timer.innerHTML = `${minuteHand}:${secondHand}`;
-
-    if (gameDurationInSec <= 0) {
+console.log(currentQuestionIndex);
+    if (gameDurationInSec <= 0  || quizQuestions.length-1 === currentQuestionIndex) {
       clearInterval(myInterval);
       gameOver();
     }

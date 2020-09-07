@@ -7,6 +7,10 @@
 *[Simple Countdown Timer with JavaScript](https://www.youtube.com/watch?v=x7WJEmxNlEs)
 
 
+## TODO
+* Penalize 10 seconds for wrong answer
+* Correctly store player information on scoreboard
+
 ## Bugs
 If the duration of the game in minutes is >=1, the game over function will run when you complete the quiz and again when the timer finally runs out. This is because the timer keeps counting down after the game ends
 

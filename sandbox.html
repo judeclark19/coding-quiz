@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Jude's Coding Quiz</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/favicon_io/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./assets/favicon_io/site.webmanifest" />
+    <!-- Favicon end -->
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <!-- Google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Nav bar begin -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-brand" href="#">Jude's Coding Quiz</div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" id="view-scoreboard">View Scoreboard</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Nav bar end -->
+
+    <!-- Card begin -->
+    <div class="container" id="main-container">
+      <div id="card-body">
+<div id="timer">Hello world</div>
+      </div>
+      <div id="card-footer">
+        <button class="btn btn-primary btn-lg" id="start-btn">
+          Start Quiz
+        </button>
+        <button class="btn btn-outline-info btn-lg hide" id="next-btn">
+          Next question
+        </button>
+      </div>
+    </div>
+    <!-- Card End -->
+
+    <!-- Game over Modal -->
+    <div class="modal-bg" id="game-over-mod-bg">
+      <div id="game-over-mod">
+        <h1>Quiz Complete!</h1>
+        <p>
+          You got <span id="questions-right"></span> out of
+          <span id="total-questions"></span> questions correct<br />with
+          <span id="time-remainder"></span> seconds remaining.
+        </p>
+        <label for="name">Enter your name for the scoreboard:</label>
+        <input type="text" id="name-input-field" name="name" />
+        <button class="btn btn-secondary submit-btn">Submit</button>
+        <img
+          src="./Assets/modalcloseicon.png"
+          width="25px"
+          id="gom-close-button"
+        />
+      </div>
+    </div>
+
+    <!-- Scoreboard Modal -->
+    <div class="modal-bg" id="scoreboard-mod-bg">
+      <div id="scoreboard-mod">
+        <h1>Scoreboard</h1>
+        <table class="table table-striped">
+          <thead id="add-new-scores-here">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Percent Correct</th>
+              <th scope="col">Seconds Remaining</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr>
+              <th scope="row">Jude</th>
+              <td>100%</td>
+              <td>0:10</td>
+            </tr>
+            <tr>
+              <th scope="row">lslslsllslslslslslls</th>
+              <td>50%</td>
+              <td>ey</td>
+            </tr> -->
+          </tbody>
+        </table>
+        <img
+          src="./Assets/modalcloseicon.png"
+          width="25px"
+          id="scoreMod-close-button"
+        />
+      </div>
+    </div>
+
+    <!-- TODO: add footer? -->
+<div id = "timer">
+    <div id="minute-hand"> </div>
+    <div id="second-hand"></div>
+</div>
+    <!-- My JS -->
+    <!-- <script src="./script.js" type="text/javascript"></script> -->
+    <script src="./sandbox.js" type="text/javascript"></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
