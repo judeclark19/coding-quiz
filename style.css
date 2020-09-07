@@ -1,185 +1,189 @@
 /* btn-danger is going to be for wrong answers */
 /* btn-success is going to be for right answers */
 
-*, *::before, *::after {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    background-color: beige!important;
-    font-family: 'Kumbh Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: beige !important;
+  font-family: "Kumbh Sans", sans-serif;
 }
 
-h2, p, #card-footer {
-    text-align: center;
-    margin-top: 25px;
+h2,
+p,
+#card-footer {
+  text-align: center;
+  margin-top: 25px;
 }
 
-.bg-light{
-    background-color: #886dbd!important;
-    border: 2px solid #7049ab;
+.bg-light {
+  background-color: #886dbd !important;
+  border: 2px solid #7049ab;
 }
 
-.navbar-brand, .navbar-text, .active-page {
-color: white!important;
+.navbar-brand,
+.navbar-text,
+.active-page {
+  color: white !important;
 }
 
 li a {
-    margin-right: 5px;}
-
-li a:hover{
-    box-shadow: 0 0 3px 1px;
+  margin-right: 5px;
 }
 
-.navbar-text{
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: #40B3A1;
-    border-radius:20px;
+li a:hover {
+  box-shadow: 0 0 3px 1px;
 }
 
-#main-container{
-    border: 3px outset #886dbd;
-    box-shadow: 0 0 3px 1px;
-    border-radius:40px;
-    margin-top: 30px;
-    /* min-height: 50vw; */
-    padding: 30px;
-    background-color:#ffffff;
+#main-container {
+  border: 3px outset #886dbd;
+  box-shadow: 0 0 3px 1px;
+  border-radius: 40px;
+  margin-top: 30px;
+  /* min-height: 50vw; */
+  padding: 30px;
+  background-color: #ffffff;
 }
 
 h2 {
-    color:#3d0066;
+  color: #3d0066;
 }
 
 hr {
-    border-top: 3px solid #886dbd;
+  border-top: 3px solid #886dbd;
 }
 
-
-/* TODO: can't for the life of me get the timer to align to the right of its div*/
-/* TODO: style this */
-#timer-readout{
-    border: 2px solid greenyellow;
-    font-size: 15pt;
-   min-width: 100px;
-    display: inline-flex;
-    position: absolute;
-    top: 80px;
-    right: 10px;
-    margin-left:auto;
-    margin-right:0;
+#timer-readout {
+  text-align: center;
+  justify-content: center;
+  padding-top: 13px;
+  padding-bottom: 7px;
+  color: white;
+  background-color: #40b3a1;
+  border-radius: 20px;
+  font-size: 20pt;
+  min-width: 110px;
+  display: flex; /*Aleks pls explain*/
+  position: absolute;
+  top: 80px;
+  right: 10px;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 /* Styling the start button */
-.btn-primary{
-    background-color: #3d0066!important;
-    border-color: #7049ab;
+.btn-primary {
+  background-color: #3d0066 !important;
+  border-color: #7049ab;
 }
-.btn-primary:hover{
-    background-color:#7049ab!important;
+.btn-primary:hover {
+  background-color: #7049ab !important;
 }
-.btn-primary:active{
-    background-color:#3d0066!important;
+.btn-primary:active {
+  background-color: #3d0066 !important;
 }
 
-#question-prompt-text{
-    /* border: 2px solid orange; */
-    margin-bottom: 20px;
-    font-size: larger;
+#question-prompt-text {
+  /* border: 2px solid orange; */
+  margin-bottom: 20px;
+  font-size: larger;
 }
 
 /* styling  other buttons*/
 /* correct answer */
 .btn-success {
-    color:#white!important;
-    min-width: 50%;
-    margin: 0 auto;
+  color: #white !important;
+  min-width: 50%;
+  margin: 0 auto;
 }
 /* incorrect answer */
 .btn-danger {
-    color:#white!important;
-    min-width: 50%;
-    margin: 0 auto;
+  color: #white !important;
+  min-width: 50%;
+  margin: 0 auto;
 }
 /* Next question button */
-.btn-outline-info{
-    color:#886dbd;
-    border-color:#886dbd;
-    min-width: 50%;
-    margin: 0 auto;
+.btn-outline-info {
+  color: #886dbd;
+  border-color: #886dbd;
+  min-width: 50%;
+  margin: 0 auto;
 }
-.btn-outline-info:hover{
-    background-color:#886dbd;
-    border-color:#886dbd;
-    /* margin-left:50px; */
+.btn-outline-info:hover {
+  background-color: #886dbd;
+  border-color: #886dbd;
+  /* margin-left:50px; */
 }
 
 /* TODO: I would like these to be centered and only the necessary width for content */
-.btn-stack{
-    /* border: 2px solid purple; */
-    display: grid!important;
-    gap: 10px;
+.btn-stack {
+  /* border: 2px solid purple; */
+  display: grid !important;
+  gap: 10px;
 }
 
-.hide{
-    display:none!important;
+.hide {
+  display: none !important;
 }
 
-.modal-bg{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: #00000060;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity .3s;
+.modal-bg {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #00000060;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s;
 }
 
-.modal-active{
-    visibility: visible;
-    opacity: 1;
+.modal-active {
+  visibility: visible;
+  opacity: 1;
 }
 
-#game-over-mod, #scoreboard-mod{
-    background-color: white!important;
-    border-style: outset;
-    border-radius: 25px;
-    color:#3d0066;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    position:relative;
-    width: 50%;
-    min-height: 35%;
-    display:flex;
-    flex-direction:column;
-    justify-content: center;
-    align-items: center;
-    /* border: 2px solid yellow; */
+#game-over-mod,
+#scoreboard-mod {
+  background-color: white !important;
+  border-style: outset;
+  border-radius: 25px;
+  color: #3d0066;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  position: relative;
+  width: 50%;
+  min-height: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid yellow; */
 }
 
-.submit-btn{
-    margin-top: 25px;
-    background-color:#dba8ac;
+.submit-btn {
+  margin-top: 25px;
+  background-color: #dba8ac;
 }
 
-.submit-btn:hover{
-    background-color: #cc92c2;
+.submit-btn:hover {
+  background-color: #cc92c2;
 }
 
-#gom-close-button{
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-weight:bold;
-    font-size: 20pt;
-    cursor: pointer;
-    /* border: solid 2px yellow; */
+#gom-close-button {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-weight: bold;
+  font-size: 20pt;
+  cursor: pointer;
+  /* border: solid 2px yellow; */
 }
