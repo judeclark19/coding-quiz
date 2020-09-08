@@ -13,8 +13,6 @@
 ## Bugs
 The timer interval will finish the iteration it is on when you complete the game, meaning your score will briefly appear as N before settling at N-1.
 
-I do not have the 'view scoreboard' function turned on as I could not get it to display properly.
-
 ## Answer Key
 <details>
   <summary>Spoiler alert! Click to reveal question and answer key.</summary>

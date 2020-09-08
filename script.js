@@ -66,6 +66,57 @@ const quizQuestions = [
       { text: "console.log", correct: true },
     ],
   },
+  {
+    question:
+      "What is the correct way to call the random method on the Math global object?",
+    answers: [
+      { text: "math.random()", correct: false },
+      { text: "Math.random()", correct: true },
+      { text: "Math(random)", correct: false },
+      { text: "random.Math()", correct: false },
+    ],
+  },
+  {
+    question:
+      "What is string interpolation?",
+    answers: [
+      { text: "Printing a string to the console.", correct: false },
+      { text: "Changing the value of a variable", correct: false },
+      { text: "Using template literals to embed variables into strings", correct: true },
+      { text: "Joining multiple strings together using the + operator", correct: false },
+    ],
+  },
+  {
+    question:
+      "What is the correct syntax for a single-line comment in JavaScript?",
+    answers: [
+      { text: "'Put your comment in quotes'", correct: false },
+      { text: "console.log('Your comment')", correct: false },
+      { text: "// Your comment", correct: true },
+      { text: "<!--Your comment-->", correct: false },
+    ],
+  },
+
+  {
+    question:
+      "Which of the following options correctly declares a variable that can be changed later in the code?",
+    answers: [
+      { text: "let myName = 'Sam';", correct: true },
+      { text: "let myName: 'Sam';", correct: false },
+      { text: "myName = 'Sam';", correct: false },
+      { text: "const myName = 'Sam';", correct: false },
+    ],
+  },
+  {
+    question:
+      "Which of the following is not a way to declare a variable?",
+    answers: [
+      { text: "let", correct: false },
+      { text: "temp", correct: true },
+      { text: "const", correct: false },
+      { text: "var", correct: false },
+    ],
+  },
 ];
 
 //Other variables
