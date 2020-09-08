@@ -190,12 +190,6 @@ function startTimer() {
       clearInterval(myInterval);
       gameOver();
     }
-
-    if (gameDurationInSec !==0 && questionsAttempted === totalQuestions)
-    {
-      clearInterval(myInterval);
-      gameOver();
-    }
   }, 1000);
 }
 
@@ -229,7 +223,6 @@ function resetAnswers() {
 //when an answer is selected
 function selectAnswer(event) {
   questionsAttempted++;
-  console.log(questionsAttempted);
   var selectedButton = event.target;
   Array.from(answerButtonsDiv.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
@@ -242,10 +235,11 @@ function selectAnswer(event) {
     gameDurationInSec -= 10;
   }
 
-  if (quizQuestions.length > currentQuestionIndex + 1) {
+  if (questionsAttempted<totalQuestions) {
     nextButton.classList.remove("hide");
   } else {
     gameOver();
+    clearInterval(myInterval);
   }
 }
 
