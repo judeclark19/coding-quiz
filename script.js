@@ -73,7 +73,7 @@ var currentQuestionIndex = 0;
 var totalCorrect = 0;
 const gameDuration = 75;
 var gameDurationInSec = gameDurationInSec;
-var gameDurationInMin = gameDurationInSec/60;
+var gameDurationInMin = gameDurationInSec / 60;
 var totalQuestions = quizQuestions.length;
 
 //Event listeners
@@ -129,8 +129,11 @@ function startTimer() {
     }
 
     timer.innerHTML = `${minuteHand}:${secondHand}`;
-console.log(currentQuestionIndex);
-    if (gameDurationInSec <= 0  || quizQuestions.length-1 === currentQuestionIndex) {
+  
+    if (
+      gameDurationInSec <= 0 ||
+      quizQuestions.length - 1 === currentQuestionIndex
+    ) {
       clearInterval(myInterval);
       gameOver();
     }
@@ -173,7 +176,7 @@ function selectAnswer(event) {
   if (selectedButton.dataset.correct) {
     totalCorrect++;
   } else {
-    gameDurationInSec -=10;
+    gameDurationInSec -= 10;
   }
   if (quizQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
@@ -191,31 +194,51 @@ function gameOver() {
   timeRemainderEl.innerHTML = gameDurationInSec;
 }
 
-function submitScore () {
+function submitScore() {
+  const storedScores = localStorage.getItem("gameResultsString"); //string of all stored score data
 
-  localStorage.setItem("myName", nameInputField.value)
-  localStorage.setItem("myScore", (totalCorrect/totalQuestions)*100+"%")
-  localStorage.setItem("myTime", gameDurationInSec);
-  console.log(localStorage);
 
-var scoreTableRow = document.createElement("tr");
+  let gameResultsArray;
+  
 
-  var nameField = document.createElement("th")
-  nameField.setAttribute("scope", "row");
-  nameField.textContent = localStorage.getItem("myName");
-  scoreTableRow.appendChild(nameField);
+  if (storedScores === null) {
+    gameResultsArray = []; //if there is nothing in memory, blank array
+  } else {
+    gameResultsArray = JSON.parse(storedScores); //if there is memory, set the array equal to the unstringified scores
+  }
 
-  var percentField = document.createElement("td")
-  // percentField.setAttribute("scope", "row");
-  percentField.textContent = localStorage.getItem("myScore");
-  scoreTableRow.appendChild(percentField);
+  var thisGameResult = {
+    name: nameInputField.value,
+    percent: (totalCorrect / totalQuestions) * 100 + "%",
+    remainder: gameDurationInSec,
+  };
 
-  var timeField = document.createElement("td")
-  // timeField.setAttribute("scope", "row");
-  timeField.textContent = localStorage.getItem("myTime");
-  scoreTableRow.appendChild(timeField);
+  gameResultsArray.push(thisGameResult);
+  localStorage.setItem("gameResultsString", JSON.stringify(gameResultsArray));
 
-  scoreTable.appendChild(scoreTableRow);
+  testVariable = localStorage.getItem("gameResultsString");
+  console.log(testVariable);
+
+  //Create the scoreboard table using locally stored data
+  for (let i = 0; i < gameResultsArray.length; i++) {
+    
+    var scoreTableRow = document.createElement("tr");
+
+    var nameField = document.createElement("th");
+    nameField.setAttribute("scope", "row");
+    nameField.textContent = gameResultsArray[i].name;
+    scoreTableRow.appendChild(nameField);
+
+    var percentField = document.createElement("td");
+    percentField.textContent = gameResultsArray[i].percent;
+    scoreTableRow.appendChild(percentField);
+
+    var timeField = document.createElement("td")
+    timeField.textContent = gameResultsArray[i].remainder;
+    scoreTableRow.appendChild(timeField);
+
+    scoreTable.appendChild(scoreTableRow);
+  }
 }
 
 //showing shows right answer after the user has guessed
