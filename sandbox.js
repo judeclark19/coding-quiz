@@ -13,17 +13,12 @@ percent: "(tc/tq)*100 = '%'",
 remainder: "gameDurationInSecs",
 }
 
-
-
 gameResultsArray.push({name: "four name",
 percent: "four score",
 remainder: "four duration",
 });
 
-console.log(gameResultsArray); //an array with one game object in it
 
 localStorage.setItem("gameResults", JSON.stringify(gameResultsArray));
 
-
-console.log(storedScores);
-console.log(JSON.parse(storedScores));
+console.log(gameResultsArray);
