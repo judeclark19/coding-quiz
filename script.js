@@ -164,6 +164,10 @@ function startGame() {
   showNextQuestion();
   startTimer();
 }
+
+//define interval
+var myInterval;
+
 //Start the timer
 function startTimer() {
   var timer = document.createElement("div");
@@ -171,7 +175,7 @@ function startTimer() {
   document.body.appendChild(timer);
 
   timer.innerHTML = "BEGIN!";
-  var myInterval = setInterval(() => {
+  myInterval = setInterval(() => {
     gameDurationInSec--;
 
     let minuteHand = Math.floor(gameDurationInSec / 60);
