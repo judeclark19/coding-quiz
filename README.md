@@ -8,7 +8,6 @@
 
 
 ## TODO
-* Penalize 10 seconds for wrong answer
 * Correctly store player information on scoreboard
 
 ## Bugs

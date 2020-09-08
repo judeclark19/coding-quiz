@@ -71,7 +71,8 @@ const quizQuestions = [
 //Other variables
 var currentQuestionIndex = 0;
 var totalCorrect = 0;
-var gameDurationInSec = 15;
+const gameDuration = 75;
+var gameDurationInSec = gameDurationInSec;
 var gameDurationInMin = gameDurationInSec/60;
 var totalQuestions = quizQuestions.length;
 
@@ -103,7 +104,8 @@ scoreSubmitButton.addEventListener("click", () => {
 function startGame() {
   currentQuestionIndex = 0;
   totalCorrect = 0;
-  resetState(); //TODO: what is this
+  gameDurationInSec = gameDuration;
+  resetAnswers(); //TODO: what is this
   startButton.classList.add("hide");
   introSlide.classList.add("hide");
   answerButtonsDiv.classList.remove("hide");
@@ -137,7 +139,7 @@ console.log(currentQuestionIndex);
 
 //Show next question once the game is already underway
 function nextQuestionSlide() {
-  resetState();
+  resetAnswers();
   showNextQuestion();
 }
 //show next question TODO: I still don't understand the answer parameter.
@@ -155,7 +157,7 @@ function showNextQuestion(question) {
   });
 }
 
-function resetState() {
+function resetAnswers() {
   while (answerButtonsDiv.firstChild) {
     answerButtonsDiv.removeChild(answerButtonsDiv.firstChild);
   }
@@ -170,6 +172,8 @@ function selectAnswer(event) {
   });
   if (selectedButton.dataset.correct) {
     totalCorrect++;
+  } else {
+    gameDurationInSec -=10;
   }
   if (quizQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
@@ -188,6 +192,7 @@ function gameOver() {
 }
 
 function submitScore () {
+
   localStorage.setItem("myName", nameInputField.value)
   localStorage.setItem("myScore", (totalCorrect/totalQuestions)*100+"%")
   localStorage.setItem("myTime", gameDurationInSec);
