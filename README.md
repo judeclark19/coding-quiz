@@ -11,7 +11,9 @@
 * Correctly store player information on scoreboard
 
 ## Bugs
-If the duration of the game in minutes is >=1, the game over function will run when you complete the quiz and again when the timer finally runs out. This is because the timer keeps counting down after the game ends
+The timer interval will finish the iteration it is on when you complete the game, meaning your score will briefly appear as N before settling at N-1.
+
+I do not have the 'view scoreboard' function turned on as I could not get it to display properly.
 
 ## Answer Key
 <details>
@@ -28,9 +30,9 @@ If the duration of the game in minutes is >=1, the game over function will run w
      * __alerts (correct)__
      * numbers
   2. The condition in an if/else statement is enclosed within:
-     * quotes
-     * curly brackets
      * __parentheses (correct)__
+     * curly brackets
+     * quotes
      * square brackets
   3. Arrays in JavaScript can be used to store:
      * numbers and strings
@@ -39,8 +41,8 @@ If the duration of the game in minutes is >=1, the game over function will run w
      * __all of the above (correct)__
   4. String values must be enclosed within ______ when being assigned to variables.
      * commas
-     * curly brackets
      * __quotes (correct)__
+     * curly brackets
      *  parentheses
   5. A very useful tool used during development and debugging for printing content to the debugger is:
      * JavaScript

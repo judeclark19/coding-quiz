@@ -71,15 +71,14 @@ const quizQuestions = [
 //Other variables
 var currentQuestionIndex = 0;
 var totalCorrect = 0;
+var questionsAttempted = 0;
 const gameDuration = 75;
 var gameDurationInSec = gameDurationInSec;
 var gameDurationInMin = gameDurationInSec / 60;
 var totalQuestions = quizQuestions.length;
 
 //Event listeners
-viewScoreboard.addEventListener("click", () => {
-  scoreboardModal.classList.add("modal-active");
-});
+viewScoreboard.addEventListener("click", viewScoreboardFunc);
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -90,6 +89,7 @@ gomCloseButton.addEventListener("click", () => {
 });
 scoreModCloseButton.addEventListener("click", () => {
   scoreboardModal.classList.remove("modal-active");
+  location.reload();
 });
 // TODO: put these stored values on the scoreboard
 scoreSubmitButton.addEventListener("click", () => {
@@ -104,6 +104,7 @@ scoreSubmitButton.addEventListener("click", () => {
 function startGame() {
   currentQuestionIndex = 0;
   totalCorrect = 0;
+  questionsAttempted = 0;
   gameDurationInSec = gameDuration;
   resetAnswers(); //TODO: what is this
   startButton.classList.add("hide");
@@ -130,10 +131,13 @@ function startTimer() {
 
     timer.innerHTML = `${minuteHand}:${secondHand}`;
   
-    if (
-      gameDurationInSec <= 0 ||
-      quizQuestions.length - 1 === currentQuestionIndex
-    ) {
+    if (gameDurationInSec <= 0) {
+      clearInterval(myInterval);
+      gameOver();
+    }
+
+    if (gameDurationInSec !==0 && questionsAttempted === totalQuestions)
+    {
       clearInterval(myInterval);
       gameOver();
     }
@@ -169,6 +173,8 @@ function resetAnswers() {
 
 //when an answer is selected
 function selectAnswer(event) {
+  questionsAttempted++;
+  console.log(questionsAttempted);
   var selectedButton = event.target;
   Array.from(answerButtonsDiv.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
@@ -196,10 +202,7 @@ function gameOver() {
 
 function submitScore() {
   const storedScores = localStorage.getItem("gameResultsString"); //string of all stored score data
-
-
   let gameResultsArray;
-  
 
   if (storedScores === null) {
     gameResultsArray = []; //if there is nothing in memory, blank array
@@ -216,10 +219,39 @@ function submitScore() {
   gameResultsArray.push(thisGameResult);
   localStorage.setItem("gameResultsString", JSON.stringify(gameResultsArray));
 
-  testVariable = localStorage.getItem("gameResultsString");
-  console.log(testVariable);
-
   //Create the scoreboard table using locally stored data
+  for (let i = 0; i < gameResultsArray.length; i++) {
+    
+    var scoreTableRow = document.createElement("tr");
+
+    var nameField = document.createElement("th");
+    nameField.setAttribute("scope", "row");
+    nameField.textContent = gameResultsArray[i].name;
+    scoreTableRow.appendChild(nameField);
+
+    var percentField = document.createElement("td");
+    percentField.textContent = gameResultsArray[i].percent;
+    scoreTableRow.appendChild(percentField);
+
+    var timeField = document.createElement("td")
+    timeField.textContent = gameResultsArray[i].remainder;
+    scoreTableRow.appendChild(timeField);
+
+    scoreTable.appendChild(scoreTableRow);
+  }
+}
+
+function viewScoreboardFunc() {
+  scoreboardModal.classList.add("modal-active");
+  const storedScores = localStorage.getItem("gameResultsString"); //string of all stored score data
+  let gameResultsArray;
+
+  if (storedScores === null) {
+    gameResultsArray = []; //if there is nothing in memory, blank array
+  } else {
+    gameResultsArray = JSON.parse(storedScores); //if there is memory, set the array equal to the unstringified scores
+  }
+
   for (let i = 0; i < gameResultsArray.length; i++) {
     
     var scoreTableRow = document.createElement("tr");
