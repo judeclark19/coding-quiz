@@ -1,16 +1,16 @@
 # coding-quiz
 
 ## Sources
-*[Build A Quiz App With JavaScript](https://www.youtube.com/watch?v=riDzcEQbX6k)
-*[How To Create A Modal In JavaScript and CSS](https://www.youtube.com/watch?v=KjQ8uvAt9kQ)
-*[Hexidecimal color code for transparency](https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4)
-*[Simple Countdown Timer with JavaScript](https://www.youtube.com/watch?v=x7WJEmxNlEs)
+* All quiz questions were either provided by Trilogy Education, or copied/inspired by questions from the JavasScript course on [codecademy.com](https://www.codecademy.com/).
+
+* YouTube tutorials I used for guidance:
+   * [Build A Quiz App With JavaScript](https://www.youtube.com/watch?v=riDzcEQbX6k)
+   * [How To Create A Modal In JavaScript and CSS](https://www.youtube.com/watch?v=KjQ8uvAt9kQ)
+   * [Hexidecimal color code for transparency](https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4)
+   * [Simple Countdown Timer with JavaScript](https://www.youtube.com/watch?v=x7WJEmxNlEs)
 
 
-## TODO
-* Correctly store player information on scoreboard
-
-## Bugs
+## Outstanding Bugs
 The timer interval will finish the iteration it is on when you complete the game, meaning your score will briefly appear as N before settling at N-1.
 
 ## Answer Key

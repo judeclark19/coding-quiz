@@ -232,9 +232,12 @@ function selectAnswer(event) {
   });
   if (selectedButton.dataset.correct) {
     totalCorrect++;
+  } else if (selectedButton.dataset.correct === false && gameDurationInSec<10) {
+    gameDurationInSec = 0; //Trying to stop the timer from turning negative if you get the last question wrong with less than 10 seconds to go
   } else {
     gameDurationInSec -= 10;
   }
+
   if (quizQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
   } else {
@@ -248,7 +251,13 @@ function gameOver() {
   startButton.classList.remove("hide");
   questionsRight.innerHTML = totalCorrect;
   totalQuestionsEl.innerHTML = totalQuestions;
-  timeRemainderEl.innerHTML = gameDurationInSec;
+
+  if (gameDurationInSec>=0){
+    timeRemainderEl.innerHTML = gameDurationInSec;
+  } else
+  timeRemainderEl.innerHTML = "0";
+
+  
 }
 
 function submitScore() {
