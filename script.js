@@ -23,15 +23,6 @@ const clearButton = document.getElementById("clear-btn");
 //==========================================================================================================
 const quizQuestions = [
   {
-    question: "What is the answer for fake question one?",
-    answers: [
-      { text: "Answer A", correct: true },
-      { text: "Answer B", correct: false },
-      { text: "Answer C", correct: false },
-      { text: "Answer D", correct: false },
-    ],
-  },
-  {
     question: "Commonly used data types DO NOT include:",
     answers: [
       { text: "strings", correct: false },
