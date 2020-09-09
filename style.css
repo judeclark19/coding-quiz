@@ -196,11 +196,11 @@ hr {
 
 /* Footer */
 footer {
-  border-top: 6px solid #7049ab;
+  border-top: 5px solid #7049ab;
   background-color: #dba8ac;
   position: relative;
-  height: 55px;
-  margin-top: -55px; /* Without this negative margin, the footer will always load JUST out of sight. By giving it a negative margin that is the same height as the footer itself, it is repositioned back onto the page. */
+  height: 40px;
+  margin-top: -40px; /* Without this negative margin, the footer will always load JUST out of sight. By giving it a negative margin that is the same height as the footer itself, it is repositioned back onto the page. */
   clear: both; /* essentially a line break for floating*/
 }
 
