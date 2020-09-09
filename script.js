@@ -187,7 +187,6 @@ function startTimer() {
     timer.innerHTML = `${minuteHand}:${secondHand}`;
   
     if (gameDurationInSec <= 0) {
-      clearInterval(myInterval);
       gameOver();
     }
   }, 1000);
@@ -239,11 +238,12 @@ function selectAnswer(event) {
     nextButton.classList.remove("hide");
   } else {
     gameOver();
-    clearInterval(myInterval);
   }
 }
 
 function gameOver() {
+  clearInterval(myInterval);
+  document.getElementById("timer-readout").classList.add("hide");
   gameOverModal.classList.add("modal-active");
   startButton.innerText = "Play Again";
   startButton.classList.remove("hide");

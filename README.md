@@ -9,10 +9,6 @@
    * [Hexidecimal color code for transparency](https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4)
    * [Simple Countdown Timer with JavaScript](https://www.youtube.com/watch?v=x7WJEmxNlEs)
 
-
-## Outstanding Bugs
-The timer interval will finish the iteration it is on when you complete the game, meaning your score will briefly appear as N before settling at N-1.
-
 ## Answer Key
 <details>
   <summary>Spoiler alert! Click to reveal question and answer key.</summary>
