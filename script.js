@@ -265,6 +265,7 @@ function gameOver() {
 }
 
 function submitScore() {
+  //Store game data in local storage
   const storedScores = localStorage.getItem("gameResultsString"); //string of all stored score data
   let gameResultsArray;
 
