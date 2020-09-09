@@ -9,6 +9,9 @@
    * [Hexidecimal color code for transparency](https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4)
    * [Simple Countdown Timer with JavaScript](https://www.youtube.com/watch?v=x7WJEmxNlEs)
 
+## Known Issues
+If the user gets the last question wrong with fewer that 10 seconds remaining, the scoreboard will show a negative time left even though the game over modal shows 0. 
+
 ## Answer Key
 <details>
   <summary>Spoiler alert! Click to reveal question and answer key.</summary>
