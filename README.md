@@ -1,4 +1,5 @@
-# coding-quiz
+# Coding Quiz Time Trial
+Try to answer the questions about JavaScript within the given time limit. Note: incorrect answers will take 10 seconds off the clock!
 
 ## Sources
 * All quiz questions were either provided by Trilogy Education, or copied/inspired by questions from the JavasScript course on [codecademy.com](https://www.codecademy.com/).
@@ -15,11 +16,6 @@ If the user gets the last question wrong with fewer that 10 seconds remaining, t
 ## Answer Key
 <details>
   <summary>Spoiler alert! Click to reveal question and answer key.</summary>
-  
-  Title: Coding Quiz Challenge
-  Description: Try to answer the following code-related questions within the time limit. Note: incorrect answers will take 10 seconds off the clock!
-
-  (start quiz button)
 
   1. Commonly used data types DO NOT include:
      * strings
@@ -47,3 +43,9 @@ If the user gets the last question wrong with fewer that 10 seconds remaining, t
      * for loops
      * __console.log (correct)__
 </details>
+
+
+## Feature Wishlist (not yet implemented)
+* Easy, Medium, and Hard levels
+* Questions appear in a shuffled order
+* Validation on whether the user enters their name for the scoreboard or leaves it blank

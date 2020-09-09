@@ -23,6 +23,15 @@ const clearButton = document.getElementById("clear-btn");
 //==========================================================================================================
 const quizQuestions = [
   {
+    question: "What is the answer for fake question one?",
+    answers: [
+      { text: "Answer A", correct: true },
+      { text: "Answer B", correct: false },
+      { text: "Answer C", correct: false },
+      { text: "Answer D", correct: false },
+    ],
+  },
+  {
     question: "Commonly used data types DO NOT include:",
     answers: [
       { text: "strings", correct: false },
@@ -284,6 +293,7 @@ function selectAnswer(event) {
 }
 //Display the Game Over modal
 function gameOver() {
+  nextButton.classList.add("hide");
   clearInterval(myInterval);
   document.getElementById("timer-readout").classList.add("hide");
   gameOverModal.classList.add("modal-active");
@@ -298,6 +308,7 @@ function gameOver() {
 }
 
 function submitScore() {
+  event.preventDefault();
   const storedScores = localStorage.getItem("gameResultsString"); //string of all stored score data
   let gameResultsArray;
 
@@ -309,7 +320,7 @@ function submitScore() {
 
   var thisGameResult = {
     name: nameInputField.value,
-    percent: (totalCorrect / totalQuestions) * 100 + "%",
+    percent: Math.round((totalCorrect / totalQuestions) * 100) + "%",
     remainder: gameDurationInSec,
   };
 
