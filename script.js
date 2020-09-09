@@ -15,18 +15,12 @@ const scoreModCloseButton = document.getElementById("scoreMod-close-button");
 const scoreSubmitButton = document.querySelector(".submit-btn");
 const nameInputField = document.getElementById("name-input-field");
 const scoreTable = document.getElementById("add-new-scores-here");
+// const timer = document.getElementById("timer-readout");
 
 //Question and answer bank
 const quizQuestions = [
   {
     question: "Commonly used data types DO NOT include:",
-    answers:[
-      { text: "strings", correct: false },
-      { text: "booleans", correct: false },
-      { text: "alerts", correct: true },
-      { text: "numbers", correct: false },
-    ],
-  },
     answers: [
       { text: "strings", correct: false },
       { text: "booleans", correct: false },
@@ -37,9 +31,9 @@ const quizQuestions = [
   {
     question: "The condition in an if/else statement is enclosed within:",
     answers: [
-      { text: "parentheses", correct: true },
       { text: "quotes", correct: false },
       { text: "curly brackets", correct: false },
+      { text: "parentheses", correct: true },
       { text: "square brackets", correct: false },
     ],
   },
@@ -265,7 +259,6 @@ function gameOver() {
 }
 
 function submitScore() {
-  //Store game data in local storage
   const storedScores = localStorage.getItem("gameResultsString"); //string of all stored score data
   let gameResultsArray;
 
