@@ -31,9 +31,9 @@ const quizQuestions = [
   {
     question: "The condition in an if/else statement is enclosed within:",
     answers: [
+      { text: "parentheses", correct: true },
       { text: "quotes", correct: false },
       { text: "curly brackets", correct: false },
-      { text: "parentheses", correct: true },
       { text: "square brackets", correct: false },
     ],
   },
