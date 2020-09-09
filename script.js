@@ -1,4 +1,5 @@
-//DOM Elements
+//DOM ELEMENTS
+//==========================================================================================================
 const viewScoreboard = document.getElementById("view-scoreboard");
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
@@ -15,9 +16,11 @@ const scoreModCloseButton = document.getElementById("scoreMod-close-button");
 const scoreSubmitButton = document.querySelector(".submit-btn");
 const nameInputField = document.getElementById("name-input-field");
 const scoreTable = document.getElementById("add-new-scores-here");
-// const timer = document.getElementById("timer-readout");
+const clearButton = document.getElementById("clear-btn");
+//==========================================================================================================
 
-//Question and answer bank
+//QUESTION AND ANSWER BANK
+//==========================================================================================================
 const quizQuestions = [
   {
     question: "Commonly used data types DO NOT include:",
@@ -77,13 +80,18 @@ const quizQuestions = [
     ],
   },
   {
-    question:
-      "What is string interpolation?",
+    question: "What is string interpolation?",
     answers: [
       { text: "Printing a string to the console.", correct: false },
       { text: "Changing the value of a variable", correct: false },
-      { text: "Using template literals to embed variables into strings", correct: true },
-      { text: "Joining multiple strings together using the + operator", correct: false },
+      {
+        text: "Using template literals to embed variables into strings",
+        correct: true,
+      },
+      {
+        text: "Joining multiple strings together using the + operator",
+        correct: false,
+      },
     ],
   },
   {
@@ -108,8 +116,7 @@ const quizQuestions = [
     ],
   },
   {
-    question:
-      "Which of the following is not a way to declare a variable?",
+    question: "Which of the following is not a way to declare a variable?",
     answers: [
       { text: "let", correct: false },
       { text: "temp", correct: true },
@@ -118,8 +125,10 @@ const quizQuestions = [
     ],
   },
 ];
+//==========================================================================================================
 
-//Other variables
+//OTHER VARIABLES
+//==========================================================================================================
 var currentQuestionIndex = 0;
 var totalCorrect = 0;
 var questionsAttempted = 0;
@@ -127,8 +136,10 @@ const gameDuration = 75;
 var gameDurationInSec = gameDurationInSec;
 var gameDurationInMin = gameDurationInSec / 60;
 var totalQuestions = quizQuestions.length;
+var myInterval;
+//==========================================================================================================
 
-//Event listeners
+//EVENT LISTENERS
 viewScoreboard.addEventListener("click", viewScoreboardFunc);
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
@@ -142,31 +153,39 @@ scoreModCloseButton.addEventListener("click", () => {
   scoreboardModal.classList.remove("modal-active");
   location.reload();
 });
-// TODO: put these stored values on the scoreboard
 scoreSubmitButton.addEventListener("click", () => {
   gameOverModal.classList.remove("modal-active");
   scoreboardModal.classList.add("modal-active");
   submitScore();
 });
+nameInputField.addEventListener('keypress', function (e) {
+  if (e.keyCode=== 13) {
+    gameOverModal.classList.remove("modal-active");
+    scoreboardModal.classList.add("modal-active");
+    submitScore();
+  }
+});
+clearButton.addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
+//==========================================================================================================
 
-//Functions
-
-//start the game, show first question
+//FUNCTIONS
+//==========================================================================================================
+//Start the game, show first question
 function startGame() {
   currentQuestionIndex = 0;
   totalCorrect = 0;
   questionsAttempted = 0;
   gameDurationInSec = gameDuration;
-  resetAnswers(); //TODO: what is this
+  resetAnswers();
   startButton.classList.add("hide");
   introSlide.classList.add("hide");
   answerButtonsDiv.classList.remove("hide");
   showNextQuestion();
   startTimer();
 }
-
-//define interval
-var myInterval;
 
 //Start the timer
 function startTimer() {
@@ -185,19 +204,26 @@ function startTimer() {
     }
 
     timer.innerHTML = `${minuteHand}:${secondHand}`;
-  
+
     if (gameDurationInSec <= 0) {
       gameOver();
     }
   }, 1000);
 }
 
-//Show next question once the game is already underway
+//Show next question once the game is already underway ==========
 function nextQuestionSlide() {
   resetAnswers();
   showNextQuestion();
 }
-//show next question TODO: I still don't understand the answer parameter.
+
+function resetAnswers() {
+  while (answerButtonsDiv.firstChild) {
+    answerButtonsDiv.removeChild(answerButtonsDiv.firstChild);
+  }
+  nextButton.classList.add("hide");
+}
+
 function showNextQuestion(question) {
   questionPromptEl.innerText = quizQuestions[currentQuestionIndex].question;
   quizQuestions[currentQuestionIndex].answers.forEach((answer) => {
@@ -211,15 +237,9 @@ function showNextQuestion(question) {
     answerButtonsDiv.appendChild(button);
   });
 }
+//================================
 
-function resetAnswers() {
-  while (answerButtonsDiv.firstChild) {
-    answerButtonsDiv.removeChild(answerButtonsDiv.firstChild);
-  }
-  nextButton.classList.add("hide");
-}
-
-//when an answer is selected
+//when an answer is selected, increment questionsAttempted, increment totalCorrect if right answer, penalize 10 sec if wrong answer
 function selectAnswer(event) {
   questionsAttempted++;
   var selectedButton = event.target;
@@ -228,19 +248,41 @@ function selectAnswer(event) {
   });
   if (selectedButton.dataset.correct) {
     totalCorrect++;
-  } else if (selectedButton.dataset.correct === false && gameDurationInSec<10) {
-    gameDurationInSec = 0; //Trying to stop the timer from turning negative if you get the last question wrong with less than 10 seconds to go
+  } else if (
+    selectedButton.dataset.correct === false &&
+    gameDurationInSec < 10
+  ) {
+    gameDurationInSec = 0; //don't let the timer go negative
   } else {
     gameDurationInSec -= 10;
   }
 
-  if (questionsAttempted<totalQuestions) {
+  //changes the styling of the buttons to reveal the right answer after the user has made their guess
+  function setStatusClass(element, correct) {
+    clearStatusClass(element);
+    if (correct) {
+      element.classList.add("btn-success");
+      element.classList.remove("btn-outline-info");
+    } else {
+      element.classList.add("btn-danger");
+      element.classList.remove("btn-outline-info");
+    }
+  }
+  //resets the styling for each new question
+  function clearStatusClass(element) {
+    element.classList.remove("btn-success");
+    element.classList.remove("btn-danger");
+  }
+
+  //Game Over ==========
+  //trigger game over when the user reaches the end of the question bank
+  if (questionsAttempted < totalQuestions) {
     nextButton.classList.remove("hide");
   } else {
     gameOver();
   }
 }
-
+//Display the Game Over modal
 function gameOver() {
   clearInterval(myInterval);
   document.getElementById("timer-readout").classList.add("hide");
@@ -250,12 +292,9 @@ function gameOver() {
   questionsRight.innerHTML = totalCorrect;
   totalQuestionsEl.innerHTML = totalQuestions;
 
-  if (gameDurationInSec>=0){
+  if (gameDurationInSec >= 0) {
     timeRemainderEl.innerHTML = gameDurationInSec;
-  } else
-  timeRemainderEl.innerHTML = "0";
-
-  
+  } else timeRemainderEl.innerHTML = "0";
 }
 
 function submitScore() {
@@ -279,7 +318,6 @@ function submitScore() {
 
   //Create the scoreboard table using locally stored data
   for (let i = 0; i < gameResultsArray.length; i++) {
-    
     var scoreTableRow = document.createElement("tr");
 
     var nameField = document.createElement("th");
@@ -291,7 +329,7 @@ function submitScore() {
     percentField.textContent = gameResultsArray[i].percent;
     scoreTableRow.appendChild(percentField);
 
-    var timeField = document.createElement("td")
+    var timeField = document.createElement("td");
     timeField.textContent = gameResultsArray[i].remainder;
     scoreTableRow.appendChild(timeField);
 
@@ -299,6 +337,7 @@ function submitScore() {
   }
 }
 
+// View scoreboard (it is dynamically generated each time you want to view it)
 function viewScoreboardFunc() {
   scoreboardModal.classList.add("modal-active");
   const storedScores = localStorage.getItem("gameResultsString"); //string of all stored score data
@@ -311,7 +350,6 @@ function viewScoreboardFunc() {
   }
 
   for (let i = 0; i < gameResultsArray.length; i++) {
-    
     var scoreTableRow = document.createElement("tr");
 
     var nameField = document.createElement("th");
@@ -323,27 +361,10 @@ function viewScoreboardFunc() {
     percentField.textContent = gameResultsArray[i].percent;
     scoreTableRow.appendChild(percentField);
 
-    var timeField = document.createElement("td")
+    var timeField = document.createElement("td");
     timeField.textContent = gameResultsArray[i].remainder;
     scoreTableRow.appendChild(timeField);
 
     scoreTable.appendChild(scoreTableRow);
   }
-}
-
-//showing shows right answer after the user has guessed
-function setStatusClass(element, correct) {
-  clearStatusClass(element);
-  if (correct) {
-    element.classList.add("btn-success");
-    element.classList.remove("btn-outline-info");
-  } else {
-    element.classList.add("btn-danger");
-    element.classList.remove("btn-outline-info");
-  }
-}
-
-function clearStatusClass(element) {
-  element.classList.remove("btn-success");
-  element.classList.remove("btn-danger");
 }

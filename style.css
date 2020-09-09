@@ -1,5 +1,4 @@
 /* Global */
-/* ================================================================================== */
 *{
   box-sizing: border-box;
 }
@@ -17,10 +16,14 @@ p,
   text-align: center;
   margin-top: 25px;
 }
+
+.hide {
+  display: none !important;
+}
+
 /* ================================================================================== */
 
 /* Nav bar styling */
-/* ================================================================================== */
 .bg-light {
   background-color: #886dbd !important;
   border: 2px solid #7049ab;
@@ -42,7 +45,6 @@ li a:hover {
 /* ================================================================================== */
 
 /* page body */
-/* ================================================================================== */
 #main-container  {
   min-height: calc(
     100vh - 90px
@@ -54,7 +56,6 @@ li a:hover {
   box-shadow: 0 0 3px 1px;
   border-radius: 40px;
   margin-top: 30px;
-  /* min-height: 50vw; */
   padding: 30px;
   background-color: #ffffff;
 }
@@ -69,7 +70,7 @@ li a:hover {
   border-radius: 20px;
   font-size: 20pt;
   min-width: 110px;
-  display: flex; /*Aleks pls explain*/
+  display: flex;
   position: absolute;
   top: 80px;
   right: 10px;
@@ -86,7 +87,6 @@ hr {
 }
 
 #question-prompt-text {
-  /* border: 2px solid orange; */
   margin-bottom: 20px;
   font-size: larger;
 }
@@ -94,7 +94,6 @@ hr {
 /* ================================================================================== */
 
 /* Buttons */
-/* ================================================================================== */
 /* Styling the start button */
 .btn-primary {
   background-color: #3d0066 !important;
@@ -108,20 +107,14 @@ hr {
 }
 
 
-
 /* styling other buttons*/
-/* btn-success styles correct answers */
-.btn-success {
-  color: #white !important;
+/* btn-danger styles incorrect answers and btn-success correct answers. Bootstrap styles overridden by default and revealed after the user has guessed*/
+.btn-success, .btn-danger {
+  color: white!important;
   min-width: 50%;
   margin: 0 auto;
 }
-/* btn-danger styles incorrect answers */
-.btn-danger {
-  color: #white !important;
-  min-width: 50%;
-  margin: 0 auto;
-}
+
 /* Next question button */
 .btn-outline-info {
   color: #886dbd;
@@ -132,20 +125,34 @@ hr {
 .btn-outline-info:hover {
   background-color: #886dbd;
   border-color: #886dbd;
-  /* margin-left:50px; */
 }
 
-/* TODO: I would like these to be centered and only the necessary width for content */
 .btn-stack {
-  /* border: 2px solid purple; */
   display: grid !important;
   gap: 10px;
 }
 
-.hide {
-  display: none !important;
+.submit-btn {
+  margin-top: 25px;
+  background-color: #dba8ac;
 }
 
+.submit-btn:hover {
+  background-color: #cc92c2;
+}
+
+#gom-close-button, #scoreMod-close-button {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-weight: bold;
+  font-size: 20pt;
+  cursor: pointer;
+}
+
+/* ================================================================================== */
+
+/* Modals */
 .modal-bg {
   position: fixed;
   width: 100%;
@@ -183,27 +190,9 @@ hr {
   align-items: center;
   overflow: auto;
   overflow-x: auto;
-  /* border: 2px solid yellow; */
 }
 
-.submit-btn {
-  margin-top: 25px;
-  background-color: #dba8ac;
-}
-
-.submit-btn:hover {
-  background-color: #cc92c2;
-}
-
-#gom-close-button, #scoreMod-close-button {
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  font-weight: bold;
-  font-size: 20pt;
-  cursor: pointer;
-  /* border: solid 2px yellow; */
-}
+/* ================================================================================== */
 
 /* Footer */
 footer {
@@ -216,7 +205,6 @@ footer {
 }
 
 #footermain {
-  /* I fetched this block from https://www.w3schools.com/css/css_align.asp */
   width: 100%;
   color: #3d0066;
   text-align: center;
