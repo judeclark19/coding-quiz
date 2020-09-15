@@ -1,6 +1,5 @@
-//DOM ELEMENTS
-//==========================================================================================================
-const viewScoreboard = document.getElementById("view-scoreboard");
+$( document ).ready(function() {
+// $("target").on("click", function)
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
 const introSlide = document.getElementById("intro-slide");
@@ -140,7 +139,7 @@ var myInterval;
 //==========================================================================================================
 
 //EVENT LISTENERS
-viewScoreboard.addEventListener("click", viewScoreboardFunc);
+$("view-scoreboard"").on("click", viewScoreboardFunc)
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -371,3 +370,4 @@ function viewScoreboardFunc() {
     scoreTable.appendChild(scoreTableRow);
   }
 }
+});

@@ -4,21 +4,26 @@ Try to answer the questions about JavaScript within the given time limit. Note: 
 Live site: [judeclark19.github.io/codingquiz](https://judeclark19.github.io/coding-quiz/)
 
 Repo: [github.com/judeclark19/coding-quiz](https://github.com/judeclark19/coding-quiz)
+
+***
+
 ## Screenshots
 #### Welcome screen
-![Welcome screen](./assets/screenshots/welcome_screen.png)
+![Welcome screen](./Assets/screenshots/welcome_screen.png)
 
 #### An unanswered quiz question with game timer counting down
-![Question prompt](./assets/screenshots/question_prompt.png)
+![Question prompt](./Assets/screenshots/question_prompt.png)
 
 #### After the user makes their guess, the answers change color to reveal which was correct
-![Answered question](./assets/screenshots/answered_question.png)
+![Answered question](./Assets/screenshots/answered_question.png)
 
 #### The Game Over modal
-![Game over](./assets/screenshots/game_over_modal.png)
+![Game over](./Assets/screenshots/game_over_modal.png)
 
 #### coreboard showing some example scores
-![Scoreboard](./assets/screenshots/scoreboard.png)
+![Scoreboard](./Assets/screenshots/scoreboard.png)
+
+***
 
 ## Sources
 * All quiz questions were either provided by Trilogy Education, or copied/inspired by questions from the JavasScript course on [codecademy.com](https://www.codecademy.com/).
@@ -28,6 +33,8 @@ Repo: [github.com/judeclark19/coding-quiz](https://github.com/judeclark19/coding
    * [How To Create A Modal In JavaScript and CSS](https://www.youtube.com/watch?v=KjQ8uvAt9kQ)
    * [Hexidecimal color code for transparency](https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4)
    * [Simple Countdown Timer with JavaScript](https://www.youtube.com/watch?v=x7WJEmxNlEs)
+
+***
 
 ## Answer Key
 <details>
@@ -60,11 +67,19 @@ Repo: [github.com/judeclark19/coding-quiz](https://github.com/judeclark19/coding
      * __console.log (correct)__
 </details>
 
+***
 
-## Feature wishlist to maybe implement someday
-* Easy, Medium, and Hard levels
+## Known Issues
+Scoreboard shows a negative number for time left if the user gets the last answer wrong with fewer than 10 seconds on the clock. I'd prefer it to display 0 instead.
+
+*** 
+
+## Feature wishlist (to maybe implement someday)
+* Easy, Medium, and Hard modes
 * Questions appear in a shuffled order
 * Validation on whether the user enters their name for the scoreboard or leaves it blank
+
+***
 
 ## License
 MIT License
