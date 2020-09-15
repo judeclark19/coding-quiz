@@ -20,7 +20,7 @@ Repo: [github.com/judeclark19/coding-quiz](https://github.com/judeclark19/coding
 #### The Game Over modal
 ![Game over](./Assets/screenshots/game_over_modal.png)
 
-#### coreboard showing some example scores
+#### Scoreboard showing some example scores
 ![Scoreboard](./Assets/screenshots/scoreboard.png)
 
 ***
@@ -65,6 +65,32 @@ Repo: [github.com/judeclark19/coding-quiz](https://github.com/judeclark19/coding
      * terminal / bash
      * for loops
      * __console.log (correct)__
+  6. What is the correct way to call the random method on the Math global object?
+     * math.random()
+     * __Math.random() (correct)__
+     * Math(random)
+     * random.Math()
+  7. What is string interpolation?
+     * Printing a string to the console.
+     * Changing the value of a variable.
+     * __Using template literals to embed variables into string. (correct)__
+     * Joining multiple strings together using the + operator.
+  8. What is the correct syntax for a single-line comment in JavaScript?
+     *  "Put your comment in quotes"
+     * console.log("Your comment");
+     * __// Your comment (correct)__
+     * !--Your comment-->
+  9. Which of the following options correctly declares a variable that can be changed later in the code?
+     * __let myName = 'Sam'; (correct)__
+     * let myName: 'Sam';
+     * myName = 'Sam';
+     * const myName = 'Sam';
+  10. Which of the following is not a way to declare a variable?
+     * let
+     * __temp (correct)__
+     * const
+     * var
+
 </details>
 
 ***
